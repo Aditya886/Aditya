@@ -1,0 +1,4807 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @font-face {
+            font-family: 'Bebas Neue';
+            src: url('BebasNeue-Regular.ttf') format('truetype'),
+                url('Bebas_Neue,Josefin_Slab/Bebas_Neue/BebasNeue-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'GoogleSans';
+            src: url('GoogleSans-VariableFont_GRAD,opsz,wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Google Sans';
+            src: url('GoogleSans-VariableFont_GRAD,opsz,wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+        }
+
+        /* Headings & Titles using Bebas Neue */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .section-title,
+        .a {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1.5px;
+        }
+
+        .lio {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 1.5px;
+        }
+
+        @font-face {
+            font-family: prime;
+            src: url(MBF\ Prime.ttf);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* ============================================================
+           DOT MATRIX BACKGROUND
+           White background with dots separated by 30px horizontally & vertically
+           ============================================================ */
+        body {
+            background-color: #f0f0f0;
+            background-image: radial-gradient(circle, #858585 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
+            background-position: 0 0;
+            color: #111111;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease;
+        }
+
+        /* ============================================================
+           DARK MODE SUPPORT
+           In Dark Theme: Background is black, card background is black,
+           and text color is white.
+           ============================================================ */
+        body.dark-theme {
+            background-color: #000000;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.22) 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
+            color: #ffffff;
+        }
+
+        body.dark-theme .section-title {
+            color: #ffffff;
+        }
+
+        body.dark-theme .section-subtitle {
+            color: #cbd5e1;
+        }
+
+        /* Dark Theme Cards: #131313 background for each container with crisp subtle border and white text */
+        body.dark-theme .hero-content,
+        body.dark-theme .about-card,
+        body.dark-theme .about-stack-card,
+        body.dark-theme .bento-card,
+        body.dark-theme .skills-card,
+        body.dark-theme .project-card,
+        body.dark-theme .core-tools-card,
+        body.dark-theme .section-card,
+        body.dark-theme .blog-card,
+        body.dark-theme .contact-stack-card,
+        body.dark-theme .portfolio-footer {
+            background-color: #353535 !important;
+            background: #353535 !important;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.14) !important;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 1px rgba(255, 255, 255, 0.2) !important;
+        }
+
+        /* Card Headings & Titles in Dark Theme */
+        body.dark-theme .about-content strong,
+        body.dark-theme .project-title,
+        body.dark-theme .skill-group-title,
+        body.dark-theme .core-tools-card h3,
+        body.dark-theme .section-card h3,
+        body.dark-theme .blog-card h3 {
+            color: #ffffff !important;
+        }
+
+        /* Card Paragraphs & Descriptions in Dark Theme */
+        body.dark-theme .about-content p,
+        body.dark-theme .project-desc,
+        body.dark-theme .section-card p,
+        body.dark-theme .blog-desc {
+            color: #e2e8f0 !important;
+        }
+
+        /* Inner Sub-cards, Groups, Tags, and Badges in Dark Theme */
+        body.dark-theme .skill-group {
+            background: #09090b !important;
+            border-color: rgba(255, 255, 255, 0.14) !important;
+        }
+
+        body.dark-theme .skill-item,
+        body.dark-theme .about-tag,
+        body.dark-theme .project-tag {
+            background: #111115 !important;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.18) !important;
+        }
+
+        body.dark-theme .about-tags {
+            border-top-color: rgba(255, 255, 255, 0.16) !important;
+        }
+
+        body.dark-theme .project-badge,
+        body.dark-theme .scroll-hint {
+            background: #000000 !important;
+            color: #e2e8f0 !important;
+            border-color: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        body.dark-theme .project-duration,
+        body.dark-theme .project-company,
+        body.dark-theme .project-tools-heading {
+            color: #94a3b8 !important;
+        }
+
+        [id^="page"] {
+            scroll-margin-top: 100px;
+        }
+
+        /* ============================================================
+           HEADER & BRAND
+           ============================================================ */
+        .Main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 20px clamp(16px, 2.6vw, 50px);
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .Main>* {
+            pointer-events: auto;
+        }
+
+        .a {
+            position: relative;
+            font-weight: 700;
+            font-size: clamp(24px, 2.1vw, 40px);
+            color: #000000;
+            /* text-shadow: 0px 0px 8px rgba(255, 19, 19, 0.4); */
+            cursor: default;
+            user-select: none;
+            white-space: nowrap;
+            transition: color 0.35s ease, text-shadow 0.35s ease;
+        }
+
+        .lio {
+            color: rgb(255, 255, 255);
+            /* text-shadow: 0 0 10px rgb(255, 0, 0); */
+            animation: portfolio 2s linear 2s infinite alternate;
+        }
+
+        @keyframes portfolio {
+            0% {
+                color: rgba(255, 0, 0, 0.234);
+                /* text-shadow: 0 0 10px rgb(255, 255, 255); */
+            }
+
+            50% {
+                color: rgb(255, 0, 0);
+                /* text-shadow: 0 0 10px rgb(255, 255, 255); */
+            }
+
+            100% {
+                color: #ff00006a;
+                /* text-shadow: 0 0 10px rgb(255, 255, 255); */
+            }
+        }
+
+        .Main.on-dark-screen .a {
+            color: #ffffff;
+            /* text-shadow: 0px 0px 5px rgb(255, 39, 39); */
+        }
+
+        .Main.on-light-screen .a {
+            color: #252525;
+            /* text-shadow: 0px 0px 8px rgba(255, 39, 39, 0.5); */
+        }
+
+        /* ============================================================
+           DYNAMIC PILL NAVBAR
+           ============================================================ */
+        .pill-navbar {
+            pointer-events: auto;
+            position: relative;
+            border-radius: 9999px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .pill-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 6px 6px 6px 22px;
+            gap: 22px;
+        }
+
+        .pill-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pill-link {
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 600;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            position: relative;
+            padding: 6px 2px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .pill-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 2px;
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .pill-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .talk-btn {
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            letter-spacing: 0.5px;
+            padding: 10px 24px;
+            border-radius: 9999px;
+            text-decoration: none;
+            white-space: nowrap;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .talk-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .pill-mob-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .pill-mob-toggle span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .pill-mob-toggle.open span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .pill-mob-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .pill-mob-toggle.open span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        .pill-mob-dropdown {
+            display: none;
+            flex-direction: column;
+            padding: 10px 14px 14px;
+            gap: 6px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .pill-mob-dropdown.open {
+            display: flex;
+        }
+
+        .pill-mob-link {
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            padding: 9px 14px;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        /* ------------------------------------------------------------
+           THEME A: ON WHITE / LIGHT SCREEN (Navbar is BLACK, text is WHITE)
+           ------------------------------------------------------------ */
+        .pill-navbar.nav-on-light,
+        .pill-navbar:not(.nav-on-dark) {
+            background: rgba(8, 8, 10, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .pill-navbar.nav-on-light .pill-link,
+        .pill-navbar:not(.nav-on-dark) .pill-link {
+            color: #b5b5be;
+        }
+
+        .pill-navbar.nav-on-light .pill-link:hover,
+        .pill-navbar:not(.nav-on-dark) .pill-link:hover {
+            color: #ffffff;
+        }
+
+        .pill-navbar.nav-on-light .pill-link.active,
+        .pill-navbar:not(.nav-on-dark) .pill-link.active {
+            color: #ff7500;
+            font-weight: 600;
+        }
+
+        .pill-navbar.nav-on-light .pill-link.active::after,
+        .pill-navbar:not(.nav-on-dark) .pill-link.active::after {
+            background-color: #ff7500;
+        }
+
+        .pill-navbar.nav-on-light .theme-btn,
+        .pill-navbar:not(.nav-on-dark) .theme-btn {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.03);
+            color: #e5e7eb;
+        }
+
+        .pill-navbar.nav-on-light .theme-btn:hover,
+        .pill-navbar:not(.nav-on-dark) .theme-btn:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .pill-navbar.nav-on-light .talk-btn,
+        .pill-navbar:not(.nav-on-dark) .talk-btn {
+            background-color: #ffffff;
+            color: #08080a;
+        }
+
+        .pill-navbar.nav-on-light .talk-btn:hover,
+        .pill-navbar:not(.nav-on-dark) .talk-btn:hover {
+            background-color: #f2f2f2;
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-toggle,
+        .pill-navbar:not(.nav-on-dark) .pill-mob-toggle {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-toggle span,
+        .pill-navbar:not(.nav-on-dark) .pill-mob-toggle span {
+            background: #ffffff;
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-dropdown,
+        .pill-navbar:not(.nav-on-dark) .pill-mob-dropdown {
+            background: #08080a;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-link,
+        .pill-navbar:not(.nav-on-dark) .pill-mob-link {
+            color: #d1d5db;
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-link:hover,
+        .pill-navbar.nav-on-light .pill-mob-link.active,
+        .pill-navbar:not(.nav-on-dark) .pill-mob-link:hover,
+        .pill-navbar:not(.nav-on-dark) .pill-mob-link.active {
+            color: #ff7500;
+            background: rgba(255, 117, 0, 0.12);
+        }
+
+        /* ------------------------------------------------------------
+           THEME B: ON BLACK / DARK SCREEN (Navbar is WHITE, text is BLACK)
+           ------------------------------------------------------------ */
+        .pill-navbar.nav-on-dark {
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .pill-navbar.nav-on-dark .pill-link {
+            color: #4b5563;
+        }
+
+        .pill-navbar.nav-on-dark .pill-link:hover {
+            color: #000000;
+        }
+
+        .pill-navbar.nav-on-dark .pill-link.active {
+            color: #e65100;
+            font-weight: 600;
+        }
+
+        .pill-navbar.nav-on-dark .pill-link.active::after {
+            background-color: #e65100;
+        }
+
+        .pill-navbar.nav-on-dark .theme-btn {
+            border: 1px solid rgba(0, 0, 0, 0.18);
+            background: rgba(0, 0, 0, 0.04);
+            color: #111111;
+        }
+
+        .pill-navbar.nav-on-dark .theme-btn:hover {
+            border-color: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.08);
+            color: #000000;
+        }
+
+        .pill-navbar.nav-on-dark .talk-btn {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .pill-navbar.nav-on-dark .talk-btn:hover {
+            background-color: #262626;
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-toggle {
+            border: 1px solid rgba(0, 0, 0, 0.18);
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-toggle span {
+            background: #111111;
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-dropdown {
+            background: #ffffff;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-link {
+            color: #374151;
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-link:hover,
+        .pill-navbar.nav-on-dark .pill-mob-link.active {
+            color: #e65100;
+            background: rgba(230, 81, 0, 0.1);
+        }
+
+        /* ============================================================
+           6 SECTIONS STYLING
+           ============================================================ */
+        .section-container {
+            width: 100%;
+            min-height: 100vh;
+            padding: 120px clamp(20px, 6vw, 100px) 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 117, 0, 0.1);
+            color: #ff7500;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 9999px;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(38px, 5.5vw, 76px);
+            font-weight: 400;
+            margin-bottom: 16px;
+            text-align: center;
+            line-height: 1.1;
+            letter-spacing: 2px;
+        }
+
+        .section-subtitle {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: clamp(17px, 1.35vw, 22px);
+            color: #64748b;
+            text-align: center;
+            max-width: 650px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            border-radius: 24px;
+            padding: clamp(24px, 3vw, 48px);
+            width: min(100%, 1000px);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Section card text */
+        .section-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(24px, 2.2vw, 32px);
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        .section-card p {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            color: #475569;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* ============================================================
+           HERO / HOME SECTION (SECTION 1) - 3D POP-OUT EFFECT
+           ============================================================ */
+        .hero-section {
+            width: 100%;
+            min-height: 100vh;
+            padding: 130px clamp(20px, 6vw, 100px) 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            width: min(100%, 1200px);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.95fr;
+            align-items: center;
+            gap: clamp(30px, 5vw, 70px);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Hero Left Content */
+        /* Hero Left Content Card Container */
+        .hero-content {
+            background: #f0f0f0;
+            /* border: 1px solid #e2e8f0; */
+            /* border-radius: 32px; */
+            /* box-shadow: 0 20px 45px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02); */
+            padding: clamp(32px, 3.9vw, 52px);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            z-index: 3;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .hero-content:hover {
+            /* box-shadow: 0 25px 55px rgba(0, 0, 0, 0.08); */
+            border-color: #f0f0f0;
+        }
+
+        body.dark-theme .hero-content {
+            background: #000000 !important;
+            /* border: 1px solid rgba(255, 255, 255, 0.14) !important; */
+            /* box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 1px rgba(255, 255, 255, 0.2) !important; */
+        }
+
+        body.dark-theme .hero-content:hover {
+            border-color: rgba(255, 255, 255, 0.25) !important;
+        }
+
+        .hero-greeting-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffff;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 6px 18px;
+            padding: 5px 16px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            margin-bottom: 18px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            margin-bottom: 16px;
+            transition: all 0.25s ease;
+        }
+
+        .hero-greeting-pill span {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 15px;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        body.dark-theme .hero-greeting-pill {
+            background: #111115;
+            border-color: rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        body.dark-theme .hero-greeting-pill span {
+            color: #e2e8f0;
+            color: #cbd5e1;
+        }
+
+        .hero-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(48px, 5.8vw, 86px);
+            letter-spacing: 2.5px;
+            color: #0f172a;
+            line-height: 0.98;
+            margin: 0 0 16px 0;
+            text-transform: uppercase;
+        }
+
+        body.dark-theme .hero-name {
+            color: #ffffff;
+        }
+
+        .hero-role-wrapper {
+            display: inline-flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .hero-role-badge {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(22px, 2.1vw, 30px);
+            letter-spacing: 1.5px;
+            color: #ff2a2a;
+            line-height: 1;
+        }
+
+        .hero-role-separator {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            color: #cbd5e1;
+            line-height: 1;
+        }
+
+        .hero-role-accent {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(22px, 2.1vw, 30px);
+            letter-spacing: 1.5px;
+            color: #0f172a;
+            line-height: 1;
+        }
+
+        body.dark-theme .hero-role-accent {
+            color: #f1f5f9;
+        }
+
+        .hero-descriptions {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 32px;
+            max-width: 580px;
+        }
+
+        .hero-lead-text {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: clamp(17px, 1.35vw, 20px);
+            line-height: 1.65;
+            color: #1e293b;
+            font-weight: 500;
+        }
+
+        body.dark-theme .hero-lead-text {
+            color: #f1f5f9;
+        }
+
+        .hero-body-text {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 15.5px;
+            line-height: 1.75;
+            color: #475569;
+        }
+
+        body.dark-theme .hero-body-text {
+            color: #cbd5e1;
+        }
+
+        .hero-callout {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 16px;
+            color: #0f172a;
+            padding-top: 4px;
+        }
+
+        body.dark-theme .hero-callout {
+            color: #ffffff;
+        }
+
+        .hero-callout strong {
+            color: #ff2a2a;
+            font-weight: 700;
+        }
+
+        /* ============================================================
+           ATTRACTIVE & UNIQUE HERO ACTION BUTTONS
+           ============================================================ */
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        /* Primary CTA: Magnetic Capsule with High-Energy Red Glow & Shimmer */
+        .hero-btn-primary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 7px 8px 7px 24px;
+            background: linear-gradient(135deg, #ff2a2a 0%, #ee1b1b 60%, #cc0d0d 100%);
+            color: #ffffff !important;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 14.5px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            border-radius: 9999px;
+            text-decoration: none;
+            box-shadow: 0 12px 28px rgba(255, 42, 42, 0.38), 0 2px 6px rgba(255, 42, 42, 0.2);
+            overflow: hidden;
+            transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: skewX(-20deg);
+            transition: left 0.75s ease;
+        }
+
+        .hero-btn-primary:hover::before {
+            left: 180%;
+        }
+
+        .hero-btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 18px 36px rgba(255, 42, 42, 0.52), 0 4px 12px rgba(255, 42, 42, 0.3);
+            color: #ffffff !important;
+        }
+
+        .hero-btn-primary .btn-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-btn-primary .btn-icon-circle {
+            position: relative;
+            z-index: 2;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.25);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 13px;
+            transition: all 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hero-btn-primary:hover .btn-icon-circle {
+            background: #000000;
+            transform: rotate(-45deg) scale(1.08);
+        }
+
+        /* Secondary CTA: Sleek Glassmorphism Capsule */
+        .hero-btn-secondary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 7px 8px 7px 24px;
+            background: #ffffff;
+            color: #0f172a !important;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 14.5px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            border-radius: 9999px;
+            border: 1.5px solid #e2e8f0;
+            text-decoration: none;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.05);
+            transition: all 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-btn-secondary .btn-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-btn-secondary .btn-icon-circle {
+            position: relative;
+            z-index: 2;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff2a2a;
+            font-size: 13px;
+            transition: all 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .hero-btn-secondary:hover {
+            transform: translateY(-3px) scale(1.02);
+            border-color: #ff2a2a;
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08), 0 0 20px rgba(255, 42, 42, 0.12);
+            color: #0f172a !important;
+        }
+
+        .hero-btn-secondary:hover .btn-icon-circle {
+            background: #ff2a2a;
+            color: #ffffff;
+            border-color: #ff2a2a;
+            transform: translate(2px, -2px) rotate(12deg) scale(1.08);
+        }
+
+        /* Dark Mode Adjustments for Buttons */
+        body.dark-theme .hero-btn-secondary {
+            background: #141418;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.14);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-theme .hero-btn-secondary .btn-icon-circle {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #ff2a2a;
+        }
+
+        body.dark-theme .hero-btn-secondary:hover {
+            border-color: #ff2a2a;
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 42, 42, 0.22);
+            color: #ffffff !important;
+        }
+
+        body.dark-theme .hero-btn-secondary:hover .btn-icon-circle {
+            background: #ff2a2a;
+            color: #ffffff;
+            border-color: #ff2a2a;
+        }
+
+        /* ============================================================
+           HERO RIGHT 3D VISUAL SCENE
+           ============================================================ */
+        .hero-visual-area {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-3d-scene {
+            position: relative;
+            width: clamp(300px, 34vw, 420px);
+            height: clamp(440px, 48vw, 580px);
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+
+        /* Backdrop Panel (Theme-Aware: White in Light Theme, Dark Gradient in Dark Theme) */
+        .hero-backdrop-panel {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 88%;
+            height: 72%;
+            background: #ffffff;
+            border-radius: 36px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.08), 0 0 30px rgba(255, 42, 42, 0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            box-sizing: border-box;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        body.dark-theme .hero-backdrop-panel {
+            background: #131313;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 42, 42, 0.12);
+        }
+
+        /* Prominent, compact top header row (Always visible with z-index: 5) */
+        .panel-header-row {
+            position: absolute;
+            top: calc(28% + 14px);
+            right: 18px;
+            left: calc(12% + 18px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .panel-status-pill {
+            pointer-events: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 3px 10px;
+            border-radius: 9999px;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #1e293b;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        body.dark-theme .panel-status-pill {
+            background: rgba(24, 24, 27, 0.92);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #f1f5f9;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .panel-status-dot {
+            width: 6px;
+            height: 6px;
+            background: #ff2a2a;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #ff2a2a;
+            animation: pulseStatusDot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseStatusDot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.85);
+            }
+        }
+
+        .panel-icon {
+            pointer-events: auto;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(255, 42, 42, 0.12);
+            border: 1px solid rgba(255, 42, 42, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff2a2a;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .panel-bg-watermark {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(38px, 4.5vw, 54px);
+            color: rgba(0, 0, 0, 0.04);
+            letter-spacing: 3px;
+            line-height: 1;
+            user-select: none;
+            pointer-events: none;
+            text-align: right;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        body.dark-theme .panel-bg-watermark {
+            color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* 3D Cutout Subject positioned at the RIGHT END of the container */
+        .hero-subject-wrapper {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            pointer-events: none;
+            overflow: visible;
+            z-index: 2;
+        }
+
+        .hero-subject-3d {
+            max-width: 95%;
+            height: 105%;
+            object-fit: contain;
+            object-position: bottom right;
+            margin-right: -4px;
+            /* Authentic 3D Pop-Out Multi-Shadow */
+            filter: drop-shadow(-18px 22px 30px rgba(0, 0, 0, 0.45)) drop-shadow(8px 12px 22px rgba(0, 0, 0, 0.25)) drop-shadow(0 0 25px rgba(255, 42, 42, 0.18));
+            transform: translateZ(0) translateY(-6px);
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .hero-3d-scene:hover .hero-subject-3d {
+            transform: translateZ(0) translateY(-14px) scale(1.02);
+            filter: drop-shadow(-25px 30px 40px rgba(0, 0, 0, 0.55)) drop-shadow(12px 18px 30px rgba(0, 0, 0, 0.35)) drop-shadow(0 0 35px rgba(255, 42, 42, 0.28));
+        }
+
+        /* Floating 3D Badges around the subject */
+        .hero-floating-badge {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 18px;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.05);
+            z-index: 4;
+            transition: all 0.3s ease;
+            animation: floatHeroBadge 5s ease-in-out infinite alternate;
+        }
+
+        body.dark-theme .hero-floating-badge {
+            background: rgba(20, 20, 25, 0.88);
+            border-color: rgba(255, 255, 255, 0.16);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+        }
+
+        .badge-top-left {
+            top: 48%;
+            left: -14%;
+            animation-delay: 0s;
+        }
+
+        .badge-bottom-right {
+            bottom: 6%;
+            right: -6%;
+            animation-delay: 2.5s;
+        }
+
+        @keyframes floatHeroBadge {
+            0% {
+                transform: translateY(0px);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .badge-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .badge-icon.react-icon {
+            background: rgba(97, 219, 251, 0.15);
+            color: #61dbfb;
+        }
+
+        .badge-icon.app-icon {
+            background: rgba(255, 42, 42, 0.12);
+            color: #ff2a2a;
+        }
+
+        .badge-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.25;
+        }
+
+        .badge-text strong {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 17px;
+            letter-spacing: 1px;
+            color: #0f172a;
+        }
+
+        body.dark-theme .badge-text strong {
+            color: #ffffff;
+        }
+
+        .badge-text span {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: #64748b;
+        }
+
+        body.dark-theme .badge-text span {
+            color: #a1a1aa;
+        }
+
+        /* Responsive Breakpoints for Hero Section */
+        @media (max-width: 968px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+                text-align: center;
+            }
+
+            .hero-content {
+                align-items: center;
+            }
+
+            .hero-descriptions {
+                align-items: center;
+            }
+
+            .hero-role-wrapper {
+                justify-content: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .badge-top-left {
+                left: -2%;
+            }
+
+            .badge-bottom-right {
+                right: -2%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding-top: 110px;
+            }
+
+            .hero-3d-scene {
+                width: 290px;
+                height: 400px;
+            }
+
+            .badge-top-left,
+            .badge-bottom-right {
+                padding: 8px 12px;
+            }
+
+            .hero-btn-primary,
+            .hero-btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ============================================================
+           SECTION HEADER ROW (OUTSIDE THE CARD)
+           ============================================================ */
+        .section-header-wrap {
+            width: min(100%, 1050px);
+            margin: 0 auto 24px auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* ============================================================
+           SECTION 2: ABOUT ME CONTAINER STACKS (BENTO GRID LAYOUT)
+           ============================================================ */
+        .about-title-container {
+            display: inline-block;
+            background-color: #ff2a2a;
+            color: #000000;
+            padding: 10px 28px;
+            border-radius: 12px;
+            margin-bottom: 0;
+            box-shadow: 0 4px 16px rgba(255, 42, 42, 0.28);
+        }
+
+        .about-title-container h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #000000;
+            font-size: clamp(32px, 3.5vw, 46px);
+            letter-spacing: 2.5px;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .about-bento-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            width: min(100%, 1150px);
+            margin: 0 auto;
+        }
+
+        /* Stack Card Common Aesthetics - Identical to Skills Bento Cards */
+        .about-stack-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 24px 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-sizing: border-box;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .about-stack-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
+            border-color: #cbd5e1;
+        }
+
+        /* Dark Theme Support */
+        body.dark-theme .about-stack-card {
+            background: #252525 !important;
+            border-color: rgba(255, 255, 255, 0.14) !important;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-theme .about-stack-card:hover {
+            border-color: rgba(255, 255, 255, 0.25) !important;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8) !important;
+        }
+
+        /* Grid Spans for Clean Mosaic */
+        .card-bio-hero {
+            grid-column: span 4;
+        }
+
+        .card-metrics-stack {
+            grid-column: span 2;
+        }
+
+        .card-mca-spotlight {
+            grid-column: span 6;
+        }
+
+        .card-job-delaine {
+            grid-column: span 3;
+        }
+
+        .card-internship-kodu {
+            grid-column: span 3;
+        }
+
+        .card-edu-kodu {
+            grid-column: span 2;
+        }
+
+        .card-edu-bca {
+            grid-column: span 2;
+        }
+
+        .card-edu-school {
+            grid-column: span 2;
+        }
+
+        /* Stack Card Inner Components */
+        .stack-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .stack-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .stack-badge.red-pill {
+            background: rgba(255, 42, 42, 0.1);
+            color: #ff2a2a;
+            border: 1px solid rgba(255, 42, 42, 0.25);
+        }
+
+        .stack-badge.blue-pill {
+            background: rgba(14, 165, 233, 0.1);
+            color: #0284c7;
+            border: 1px solid rgba(14, 165, 233, 0.25);
+        }
+
+        .stack-badge.green-pill {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.25);
+        }
+
+        .stack-badge.grey-pill {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stack-badge.live-green-pill {
+            background: rgba(34, 197, 94, 0.12);
+            color: #16a34a;
+            border: 1px solid rgba(34, 197, 94, 0.25);
+        }
+
+        .live-pulse-dot {
+            width: 7px;
+            height: 7px;
+            background: #16a34a;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #16a34a;
+            animation: pulseGreenDot 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseGreenDot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.8);
+            }
+        }
+
+        body.dark-theme .stack-badge.grey-pill {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.14);
+            color: #cbd5e1;
+        }
+
+        .stack-corner-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        .stack-corner-icon.pulse-red {
+            background: rgba(255, 42, 42, 0.1);
+            color: #ff2a2a;
+            border-color: rgba(255, 42, 42, 0.2);
+        }
+
+        body.dark-theme .stack-corner-icon {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+        }
+
+        .stack-tenure-tag {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #64748b;
+            background: #f1f5f9;
+            padding: 3px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.3px;
+        }
+
+        body.dark-theme .stack-tenure-tag {
+            background: rgba(255, 255, 255, 0.08);
+            color: #cbd5e1;
+        }
+
+        /* Bio Hero Card Content */
+        .stack-hero-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(28px, 2.8vw, 38px);
+            color: #0f172a;
+            letter-spacing: 2px;
+            margin: 0 0 6px 0;
+            line-height: 1;
+        }
+
+        body.dark-theme .stack-hero-name {
+            color: #ffffff;
+        }
+
+        .stack-role-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 12px;
+        }
+
+        .role-highlight {
+            color: #ff2a2a;
+            font-weight: 700;
+        }
+
+        .role-sep {
+            color: #cbd5e1;
+        }
+
+        .stack-body-text {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: #475569;
+            margin: 0 0 16px 0;
+        }
+
+        body.dark-theme .stack-body-text {
+            color: #cbd5e1;
+        }
+
+        .stack-pills-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .stack-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #334155;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+        }
+
+        .stack-pill:hover {
+            transform: translateY(-2px);
+            border-color: #ff2a2a;
+        }
+
+        body.dark-theme .stack-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #e2e8f0;
+        }
+
+        /* Metrics Stack Card List */
+        .metrics-stack-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            justify-content: space-around;
+            height: 100%;
+        }
+
+        .metric-stack-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .metric-stack-item:hover {
+            border-color: #cbd5e1;
+            transform: translateX(3px);
+        }
+
+        .metric-stack-item.highlight-item {
+            border-color: rgba(255, 42, 42, 0.3);
+            background: linear-gradient(135deg, rgba(255, 42, 42, 0.06) 0%, rgba(255, 255, 255, 0.8) 100%);
+        }
+
+        body.dark-theme .metric-stack-item {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .metric-stack-item.highlight-item {
+            background: linear-gradient(135deg, rgba(255, 42, 42, 0.12) 0%, rgba(24, 24, 27, 0.8) 100%);
+            border-color: rgba(255, 42, 42, 0.35);
+        }
+
+        .metric-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
+            line-height: 1;
+            color: #0f172a;
+            letter-spacing: 0.5px;
+            min-width: 65px;
+        }
+
+        body.dark-theme .metric-num {
+            color: #ffffff;
+        }
+
+        .metric-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .metric-label {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: #334155;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        body.dark-theme .metric-label {
+            color: #cbd5e1;
+        }
+
+        .metric-note {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 10.5px;
+            color: #64748b;
+        }
+
+        body.dark-theme .metric-note {
+            color: #94a3b8;
+        }
+
+        /* MCA Spotlight Card */
+        .card-mca-spotlight {
+            border-left: 5px solid #ff2a2a;
+        }
+
+        .mca-banner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .mca-live-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 42, 42, 0.1);
+            color: #ff2a2a;
+            border: 1px solid rgba(255, 42, 42, 0.25);
+            padding: 3px 10px;
+            border-radius: 9999px;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            margin-bottom: 6px;
+        }
+
+        .mca-banner-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(24px, 2.2vw, 30px);
+            color: #0f172a;
+            letter-spacing: 1.5px;
+            margin: 2px 0 6px 0;
+            line-height: 1.1;
+        }
+
+        body.dark-theme .mca-banner-title {
+            color: #ffffff;
+        }
+
+        .mca-institution-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 13.5px;
+            color: #475569;
+        }
+
+        .mca-institution-row i {
+            color: #ff2a2a;
+        }
+
+        body.dark-theme .mca-institution-row {
+            color: #cbd5e1;
+        }
+
+        .mca-status-badge {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 6px 14px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        body.dark-theme .mca-status-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mca-badge-term {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 19px;
+            color: #ff2a2a;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .mca-badge-note {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 9.5px;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        body.dark-theme .mca-badge-note {
+            color: #94a3b8;
+        }
+
+        .mca-progress-container {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+        }
+
+        body.dark-theme .mca-progress-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .mca-progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        body.dark-theme .mca-progress-header {
+            color: #e2e8f0;
+        }
+
+        .mca-progress-track {
+            width: 100%;
+            height: 7px;
+            background: #e2e8f0;
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        body.dark-theme .mca-progress-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .mca-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff2a2a, #ff6b6b);
+            border-radius: 9999px;
+            transition: width 0.8s ease;
+        }
+
+        .mca-banner-desc {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.65;
+            color: #475569;
+            margin: 0;
+        }
+
+        body.dark-theme .mca-banner-desc {
+            color: #cbd5e1;
+        }
+
+        /* Detail Stack Cards (Job, Internship, Programs) */
+        .stack-role-title {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        body.dark-theme .stack-role-title {
+            color: #ffffff;
+        }
+
+        .stack-company-name {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 13.5px;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        .stack-company-name i {
+            color: #ff2a2a;
+            font-size: 12px;
+        }
+
+        body.dark-theme .stack-company-name {
+            color: #cbd5e1;
+        }
+
+        .stack-date-location {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 10px;
+        }
+
+        body.dark-theme .stack-date-location {
+            color: #94a3b8;
+        }
+
+        .stack-card-desc {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 13.5px;
+            line-height: 1.65;
+            color: #475569;
+            margin: 0 0 14px 0;
+        }
+
+        body.dark-theme .stack-card-desc {
+            color: #cbd5e1;
+        }
+
+        .stack-tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .stack-tech-badges span {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #334155;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        body.dark-theme .stack-tech-badges span {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+        }
+
+        /* Responsive Breakpoints for About Bento Grid */
+        @media (max-width: 1024px) {
+            .about-bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .card-bio-hero {
+                grid-column: span 2;
+            }
+
+            .card-metrics-stack {
+                grid-column: span 2;
+            }
+
+            .card-mca-spotlight {
+                grid-column: span 2;
+            }
+
+            .card-job-delaine {
+                grid-column: span 1;
+            }
+
+            .card-internship-kodu {
+                grid-column: span 1;
+            }
+
+            .card-edu-kodu {
+                grid-column: span 1;
+            }
+
+            .card-edu-bca {
+                grid-column: span 1;
+            }
+
+            .card-edu-school {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .about-bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card-bio-hero,
+            .card-metrics-stack,
+            .card-mca-spotlight,
+            .card-job-delaine,
+            .card-internship-kodu,
+            .card-edu-kodu,
+            .card-edu-bca,
+            .card-edu-school {
+                grid-column: 1 / -1;
+            }
+        }
+
+        /* ============================================================
+           BENTO GRID CONTAINER STACKS (SKILLS SECTION)
+           ============================================================ */
+        .skills-title-container {
+            display: inline-block;
+            background-color: #ff2a2a;
+            color: #000000;
+            padding: 10px 28px;
+            border-radius: 12px;
+            margin-bottom: 0;
+            box-shadow: 0 4px 16px rgba(255, 42, 42, 0.28);
+        }
+
+        .skills-title-container h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #000000;
+            font-size: clamp(32px, 3.5vw, 46px);
+            letter-spacing: 2.5px;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .skills-bento-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 20px;
+            width: min(100%, 1150px);
+            margin: 0 auto;
+        }
+
+        /* Bento Card Common Styles - White background for Light Theme */
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 26px 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-sizing: border-box;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        body.dark-theme .bento-card {
+            background: #252525 !important;
+            border-color: rgba(255, 255, 255, 0.14) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.2) !important;
+            color: #ffffff;
+        }
+
+        /* Card 1: Hero Card (Spans 2 rows on left) */
+        .bento-card-hero {
+            grid-column: 1 / 2;
+            grid-row: 1 / 3;
+            background: #ffffff;
+            padding: 28px 28px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        body.dark-theme .bento-card-hero {
+            background: #131313 !important;
+        }
+
+        .bento-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .bento-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            letter-spacing: 2px;
+            color: #0f172a;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        body.dark-theme .bento-logo {
+            color: #ffffff;
+        }
+
+        .bento-time-badge {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+            text-align: right;
+            line-height: 1.3;
+        }
+
+        .bento-time-badge span {
+            display: block;
+            font-size: 17px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        body.dark-theme .bento-time-badge span {
+            color: #ffffff;
+        }
+
+        .bento-hero-body {
+            margin: auto 0;
+        }
+
+        .bento-label {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #64748b;
+            margin-bottom: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        body.dark-theme .bento-label {
+            color: #a1a1aa;
+        }
+
+        .bento-hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(28px, 2.5vw, 42px);
+            letter-spacing: 1.5px;
+            line-height: 1.1;
+            color: #0f172a;
+            margin-bottom: 14px;
+        }
+
+        body.dark-theme .bento-hero-title {
+            color: #ffffff;
+        }
+
+        .bento-hero-desc {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #475569;
+            margin-bottom: 18px;
+        }
+
+        body.dark-theme .bento-hero-desc {
+            color: #d4d4d8;
+        }
+
+        .bento-hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-bottom: 18px;
+        }
+
+        .bento-pill {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1e293b;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .bento-pill:hover {
+            background: #ff2a2a;
+            color: #ffffff;
+            border-color: #ff2a2a;
+        }
+
+        body.dark-theme .bento-pill {
+            background: #111115 !important;
+            color: #f1f5f9 !important;
+            border-color: rgba(255, 255, 255, 0.16) !important;
+        }
+
+        .bento-hero-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #64748b;
+            padding-top: 14px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        body.dark-theme .bento-hero-footer {
+            border-top-color: rgba(255, 255, 255, 0.12);
+            color: #a1a1aa;
+        }
+
+        /* Center Column Cards */
+        .bento-card-center-top {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
+
+        .bento-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .bento-icon-action {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #475569;
+            transition: all 0.2s;
+        }
+
+        body.dark-theme .bento-icon-action {
+            background: #18181b;
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #f1f5f9;
+        }
+
+        .bento-card:hover .bento-icon-action {
+            background: #ff2a2a;
+            color: #ffffff;
+            border-color: #ff2a2a;
+            transform: scale(1.08);
+        }
+
+        .bento-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(22px, 1.8vw, 26px);
+            letter-spacing: 1.5px;
+            color: #0f172a;
+            margin: 0 0 10px 0;
+            line-height: 1.15;
+        }
+
+        body.dark-theme .bento-title {
+            color: #ffffff;
+        }
+
+        /* Say Hello / Work Together card */
+        .bento-card-cta {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            cursor: pointer;
+        }
+
+        /* Status card */
+        .bento-card-status {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+
+        .bento-status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #10b981;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .bento-status-dot {
+            width: 9px;
+            height: 9px;
+            background: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Right column middle card: State & Backend */
+        .bento-card-backend {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+        }
+
+        /* Bottom Row 3 cards */
+        .bento-card-bottom-1 {
+            grid-column: 1 / 2;
+            grid-row: 3 / 4;
+        }
+
+        .bento-card-bottom-2 {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+        }
+
+        .bento-card-bottom-3 {
+            grid-column: 3 / 4;
+            grid-row: 3 / 4;
+        }
+
+        /* Tools Dock Icon Row */
+        .bento-tools-dock {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .dock-app-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .dock-app-icon img {
+            width: 26px;
+            height: 26px;
+            object-fit: contain;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.08));
+        }
+
+        .dock-app-icon:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        body.dark-theme .dock-app-icon {
+            background: #18181b;
+            border-color: rgba(255, 255, 255, 0.18);
+        }
+
+        /* Responsive Breakpoints for Bento Grid */
+        @media (max-width: 1024px) {
+            .skills-bento-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .bento-card-hero {
+                grid-column: 1 / 3;
+                grid-row: auto;
+            }
+
+            .bento-card-center-top {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+
+            .bento-card-cta {
+                grid-column: 2 / 3;
+                grid-row: auto;
+            }
+
+            .bento-card-status {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+
+            .bento-card-backend {
+                grid-column: 2 / 3;
+                grid-row: auto;
+            }
+
+            .bento-card-bottom-1 {
+                grid-column: 1 / 2;
+                grid-row: auto;
+            }
+
+            .bento-card-bottom-2 {
+                grid-column: 2 / 3;
+                grid-row: auto;
+            }
+
+            .bento-card-bottom-3 {
+                grid-column: 1 / 3;
+                grid-row: auto;
+            }
+        }
+
+        @media (max-width: 680px) {
+            .skills-bento-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .bento-card-hero,
+            .bento-card-center-top,
+            .bento-card-cta,
+            .bento-card-status,
+            .bento-card-backend,
+            .bento-card-bottom-1,
+            .bento-card-bottom-2,
+            .bento-card-bottom-3 {
+                grid-column: 1 / -1;
+                grid-row: auto;
+            }
+        }
+
+        /* ============================================================
+           HORIZONTAL SCROLLING PROJECTS SECTION
+           ============================================================ */
+        .projects-scroll-wrapper {
+            position: relative;
+            width: 100%;
+            height: 380vh;
+            /* Vertical scroll runway driving horizontal slide */
+            margin: 40px 0;
+        }
+
+        .projects-sticky-container {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 80px 0 20px;
+            box-sizing: border-box;
+        }
+
+        .projects-header-area {
+            padding: 0 clamp(20px, 6vw, 100px);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-shrink: 0;
+        }
+
+        .projects-title-container {
+            display: inline-block;
+            background-color: #ff2a2a;
+            color: #000000;
+            padding: 10px 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(255, 42, 42, 0.28);
+        }
+
+        .projects-title-container h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #000000;
+            font-size: clamp(32px, 3.5vw, 46px);
+            letter-spacing: 2.5px;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .scroll-hint {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #64748b;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .scroll-hint i {
+            color: #ff2a2a;
+            animation: bounceRight 1.5s infinite;
+        }
+
+        @keyframes bounceRight {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(6px);
+            }
+        }
+
+        .projects-track {
+            display: flex;
+            gap: 28px;
+            padding: 10px clamp(20px, 6vw, 100px);
+            will-change: transform;
+            width: max-content;
+            align-items: stretch;
+            transition: transform 0.06s linear;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.03);
+            padding: 30px 28px;
+            width: clamp(330px, 32vw, 440px);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+            border-color: #cbd5e1;
+        }
+
+        .project-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .project-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 34px;
+            color: #ff2a2a;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .project-badge {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: #475569;
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(23px, 1.9vw, 29px);
+            letter-spacing: 1.5px;
+            color: #0f172a;
+            margin: 0 0 8px 0;
+            line-height: 1.2;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 14px;
+        }
+
+        .project-duration,
+        .project-company {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-desc {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.65;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-tools-heading {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .project-tag {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            transition: all 0.2s;
+        }
+
+        .project-card:hover .project-tag {
+            background: #ffffff;
+            border-color: #cbd5e1;
+        }
+
+        .project-tag:hover {
+            background: #ff2a2a !important;
+            color: #ffffff !important;
+            border-color: #ff2a2a !important;
+        }
+
+        /* Core Tools Card at the end of the track */
+        .core-tools-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            padding: 30px 28px;
+            width: clamp(340px, 32vw, 460px);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .core-tools-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
+            letter-spacing: 1.5px;
+            color: #0f172a;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .core-tool-group {
+            margin-bottom: 14px;
+        }
+
+        .core-tool-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #ff2a2a;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .core-tool-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .projects-scroll-wrapper {
+                height: auto;
+            }
+
+            .projects-sticky-container {
+                position: relative;
+                height: auto;
+                padding: 40px 0;
+                overflow: visible;
+            }
+
+            .projects-track {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+                padding: 10px 20px 24px;
+            }
+
+            .project-card,
+            .core-tools-card {
+                scroll-snap-align: start;
+                width: 85vw;
+            }
+        }
+
+        /* ============================================================
+           SECTION 5: BLOGS STYLING
+           ============================================================ */
+        .blogs-title-container {
+            display: inline-block;
+            background-color: #ff2a2a;
+            color: #000000;
+            padding: 10px 28px;
+            border-radius: 12px;
+            margin-bottom: 0;
+            box-shadow: 0 4px 16px rgba(255, 42, 42, 0.28);
+        }
+
+        .blogs-title-container h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #000000;
+            font-size: clamp(32px, 3.5vw, 46px);
+            letter-spacing: 2.5px;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            width: min(100%, 1050px);
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.03);
+            padding: 32px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.09);
+            border-color: #cbd5e1;
+        }
+
+        .blog-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .blog-category-badge {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: #ff2a2a;
+            background: rgba(255, 42, 42, 0.08);
+            border: 1px solid rgba(255, 42, 42, 0.2);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .blog-read-time {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+        }
+
+        .blog-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(26px, 2.2vw, 32px);
+            letter-spacing: 1.5px;
+            color: #0f172a;
+            margin: 0 0 12px 0;
+            line-height: 1.15;
+        }
+
+        .blog-desc {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 15px;
+            color: #334155;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            text-align: justify;
+        }
+
+        .blog-desc p {
+            margin: 0 0 12px 0;
+            line-height: 1.7;
+        }
+
+        .blog-desc p:last-child {
+            margin-bottom: 0;
+        }
+
+        .blog-desc strong {
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        body.dark-theme .blog-desc strong {
+            color: #ffffff;
+        }
+
+        .blog-desc code {
+            background: rgba(255, 42, 42, 0.08);
+            color: #ff2a2a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13.5px;
+            font-family: monospace;
+        }
+
+        body.dark-theme .blog-desc code {
+            background: rgba(255, 42, 42, 0.15);
+        }
+
+        .blog-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px dashed #e2e8f0;
+            margin-top: auto;
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .blog-tag {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #475569;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 3px 10px;
+            border-radius: 9999px;
+        }
+
+        @media (max-width: 860px) {
+            .blogs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================================
+           SECTION 6: CONTACT & GET IN TOUCH (CONTAINER STACKS)
+           ============================================================ */
+        .contact-title-container {
+            display: inline-block;
+            background-color: #ff2a2a;
+            color: #000000;
+            padding: 10px 28px;
+            border-radius: 12px;
+            margin-bottom: 0;
+            box-shadow: 0 4px 16px rgba(255, 42, 42, 0.28);
+        }
+
+        .contact-title-container h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: #000000;
+            font-size: clamp(32px, 3.5vw, 46px);
+            letter-spacing: 2.5px;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            width: min(100%, 1150px);
+            margin: 0 auto;
+        }
+
+        .contact-stack-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 32px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-sizing: border-box;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .contact-stack-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        body.dark-theme .contact-stack-card {
+            background: #252525 !important;
+            border-color: rgba(255, 255, 255, 0.14) !important;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6) !important;
+            color: #ffffff !important;
+        }
+
+        body.dark-theme .contact-stack-card:hover {
+            border-color: rgba(255, 255, 255, 0.25) !important;
+        }
+
+        /* Direct Channels Card (Left) */
+        .contact-header {
+            margin-bottom: 24px;
+        }
+
+        .contact-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34, 197, 94, 0.12);
+            color: #16a34a;
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .contact-card-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(28px, 2.8vw, 36px);
+            color: #0f172a;
+            letter-spacing: 1.5px;
+            margin: 0 0 10px 0;
+            line-height: 1.1;
+        }
+
+        body.dark-theme .contact-card-title {
+            color: #ffffff;
+        }
+
+        .contact-card-desc {
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: #475569;
+            margin: 0;
+        }
+
+        body.dark-theme .contact-card-desc {
+            color: #cbd5e1;
+        }
+
+        .channels-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 24px 0;
+        }
+
+        .channel-tile {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s ease;
+        }
+
+        .channel-tile:hover {
+            border-color: #ff2a2a;
+            transform: translateX(4px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark-theme .channel-tile {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-theme .channel-tile:hover {
+            border-color: #ff2a2a;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .channel-info-group {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .channel-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .channel-icon.email-icon {
+            background: rgba(255, 42, 42, 0.12);
+            color: #ff2a2a;
+        }
+
+        .channel-icon.phone-icon {
+            background: rgba(34, 197, 94, 0.12);
+            color: #16a34a;
+        }
+
+        .channel-icon.linkedin-icon {
+            background: rgba(10, 102, 194, 0.12);
+            color: #0a66c2;
+        }
+
+        .channel-icon.github-icon {
+            background: rgba(15, 23, 42, 0.1);
+            color: #0f172a;
+        }
+
+        body.dark-theme .channel-icon.github-icon {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .channel-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .channel-label {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-theme .channel-label {
+            color: #94a3b8;
+        }
+
+        .channel-value {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        body.dark-theme .channel-value {
+            color: #ffffff;
+        }
+
+        .channel-arrow {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #64748b;
+            transition: all 0.25s ease;
+        }
+
+        .channel-tile:hover .channel-arrow {
+            background: #ff2a2a;
+            color: #ffffff;
+            border-color: #ff2a2a;
+            transform: rotate(-45deg);
+        }
+
+        body.dark-theme .channel-arrow {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #cbd5e1;
+        }
+
+        .contact-location-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            padding-top: 14px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .contact-location-bar i {
+            color: #ff2a2a;
+        }
+
+        body.dark-theme .contact-location-bar {
+            border-color: rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+        }
+
+        /* Message Form Card (Right) */
+        .form-header {
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-field-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-field-group label {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #475569;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        body.dark-theme .form-field-group label {
+            color: #cbd5e1;
+        }
+
+        .form-field-group input,
+        .form-field-group textarea {
+            width: 100%;
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px 14px;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 14px;
+            color: #0f172a;
+            outline: none;
+            transition: all 0.25s ease;
+            box-sizing: border-box;
+        }
+
+        .form-field-group input:focus,
+        .form-field-group textarea:focus {
+            border-color: #ff2a2a;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(255, 42, 42, 0.12);
+        }
+
+        body.dark-theme .form-field-group input,
+        body.dark-theme .form-field-group textarea {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+        }
+
+        body.dark-theme .form-field-group input:focus,
+        body.dark-theme .form-field-group textarea:focus {
+            border-color: #ff2a2a;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(255, 42, 42, 0.2);
+        }
+
+        .form-field-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .contact-submit-btn {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 8px 8px 24px;
+            background: linear-gradient(135deg, #ff2a2a 0%, #ee1b1b 60%, #cc0d0d 100%);
+            color: #ffffff;
+            font-family: 'GoogleSans', 'Google Sans', sans-serif;
+            font-size: 14.5px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            border-radius: 9999px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            box-shadow: 0 10px 24px rgba(255, 42, 42, 0.35);
+            transition: all 0.3s ease;
+            margin-top: 6px;
+        }
+
+        .contact-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px rgba(255, 42, 42, 0.48);
+        }
+
+        .contact-submit-btn .btn-icon-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.24);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-submit-btn:hover .btn-icon-circle {
+            background: #000000;
+            transform: translate(2px, -2px) rotate(12deg);
+        }
+
+        /* ============================================================
+           FOOTER CONTAINER CARD STYLING
+           ============================================================ */
+        .portfolio-footer {
+            width: min(100%, 1150px);
+            margin: 50px auto 40px auto;
+            background: #f0f0f0;
+            /* border: 1px solid #e2e8f0; */
+            /* border-radius: 28px; */
+            /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02); */
+            padding: 30px 36px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-footer:hover {
+            /* box-shadow: 0 18px 36px rgba(0, 0, 0, 0.07); */
+            border-color: #cbd5e1;
+        }
+
+        body.dark-theme .portfolio-footer {
+            background: #000000 !important;
+            /* border: 1px solid rgba(255, 255, 255, 0.14) !important; */
+            /* box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6) !important; */
+        }
+
+        body.dark-theme .portfolio-footer:hover {
+            border-color: rgba(255, 255, 255, 0.25) !important;
+        }
+
+        .footer-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        body.dark-theme .footer-top-row {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
+            letter-spacing: 2px;
+            color: #0f172a;
+        }
+
+        body.dark-theme .footer-brand-title {
+            color: #ffffff;
+        }
+
+        .footer-brand-title span {
+            color: #ff2a2a;
+        }
+
+        .footer-links-row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links-row a {
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #475569;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links-row a:hover {
+            color: #ff2a2a;
+        }
+
+        body.dark-theme .footer-links-row a {
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .footer-links-row a:hover {
+            color: #ff2a2a;
+        }
+
+        .footer-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'GoogleSans', sans-serif;
+            font-size: 13px;
+            color: #64748b;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        body.dark-theme .footer-bottom-row {
+            color: #94a3b8;
+        }
+
+        .footer-back-to-top {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            color: #334155;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .footer-back-to-top:hover {
+            color: #ff2a2a;
+            border-color: #ff2a2a;
+            transform: translateY(-2px);
+        }
+
+        body.dark-theme .footer-back-to-top {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.12);
+            color: #cbd5e1;
+        }
+
+        body.dark-theme .footer-back-to-top:hover {
+            color: #ff2a2a;
+            border-color: #ff2a2a;
+        }
+
+        @media (max-width: 860px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1080px) {
+            .pill-links {
+                display: none;
+            }
+
+            .pill-mob-toggle {
+                display: flex;
+            }
+
+            .pill-navbar {
+                border-radius: 28px;
+            }
+
+            .pill-nav-inner {
+                padding: 6px 8px;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Main {
+                padding: 14px 16px;
+            }
+
+            .a {
+                font-size: 22px;
+            }
+
+            .talk-btn {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .theme-btn,
+            .pill-mob-toggle {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header with Brand on Left, Dynamic Pill Navbar on Right -->
+    <header class="Main on-light-screen">
+        <div class="a">Portfo<span class="lio">lio</span></div>
+
+        <nav class="pill-navbar nav-on-light" id="pillNavbar">
+            <div class="pill-nav-inner">
+                <!-- Desktop Navigation Links -->
+                <ul class="pill-links" id="pillNavLinks">
+                    <li><a href="#page1" class="pill-link active">Home</a></li>
+                    <li><a href="#page2" class="pill-link">About Me</a></li>
+                    <li><a href="#page3" class="pill-link">Services</a></li>
+                    <li><a href="#page4" class="pill-link">Projects</a></li>
+                    <li><a href="#page5" class="pill-link">Blogs</a></li>
+                    <li><a href="#page6" class="pill-link">Testimonials</a></li>
+                </ul>
+
+                <!-- Right Actions -->
+                <div class="pill-actions">
+                    <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <a href="#page6" class="talk-btn">Let's Talk</a>
+                    <!-- Mobile Hamburger -->
+                    <button class="pill-mob-toggle" id="pillMobToggle" aria-label="Toggle menu">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Dropdown Menu -->
+            <div class="pill-mob-dropdown" id="pillMobDropdown">
+                <a href="#page1" class="pill-mob-link active">Home</a>
+                <a href="#page2" class="pill-mob-link">About Me</a>
+                <a href="#page3" class="pill-mob-link">Services</a>
+                <a href="#page4" class="pill-mob-link">Projects</a>
+                <a href="#page5" class="pill-mob-link">Blogs</a>
+                <a href="#page6" class="pill-mob-link">Testimonials</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- SECTION 1: HERO / HOME -->
+    <section class="hero-section" id="page1">
+        <div class="hero-container">
+            <!-- Left: Content & Text -->
+            <div class="hero-content">
+                <div class="hero-greeting-pill">
+                    <span>Hey there! 👋 I'm</span>
+                </div>
+
+                <h1 class="hero-name">ADITYA MAHIWAL</h1>
+
+                <div class="hero-role-wrapper">
+                    <span class="hero-role-badge">Mobile App Developer</span>
+                    <span class="hero-role-separator">|</span>
+                    <span class="hero-role-accent">React Native Specialist</span>
+                </div>
+
+                <div class="hero-descriptions">
+                    <p class="hero-lead-text">
+                        I turn ideas into beautiful, responsive, and high-performance mobile applications.
+                    </p>
+                    <p class="hero-body-text">
+                        Passionate about crafting smooth user experiences, creative interfaces, and powerful mobile
+                        solutions with modern technologies.
+                    </p>
+                    <p class="hero-callout">
+                        <strong>Let's build something amazing together.</strong>
+                    </p>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#page4" class="hero-btn-primary">
+                        <span class="btn-text">Explore My Work</span>
+                        <span class="btn-icon-circle">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </a>
+                    <a href="#page6" class="hero-btn-secondary">
+                        <span class="btn-text">Get In Touch</span>
+                        <span class="btn-icon-circle">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right: 3D Visual Subject with Backdrop & Shadows -->
+            <div class="hero-visual-area">
+                <div class="hero-3d-scene">
+                    <!-- Modern Backdrop Panel with signature curvature -->
+                    <div class="hero-backdrop-panel">
+                        <div class="panel-bg-watermark">REACT NATIVE</div>
+                    </div>
+
+                    <!-- 3D Cutout Subject with Multi-Layered Drop Shadow -->
+                    <div class="hero-subject-wrapper">
+                        <img src="subject_top70.png?v=3" onerror="this.src='Subject.png'" alt="Aditya Mahiwal"
+                            class="hero-subject-3d">
+                    </div>
+
+                    <!-- Prominent Header Row Overlay (Always visible with z-index: 5) -->
+                    <div class="panel-header-row">
+                        <span class="panel-status-pill">
+                            <span class="panel-status-dot"></span>
+                            <span>Mobile Architect</span>
+                        </span>
+                        <!-- <span class="panel-icon"><i class="fa-solid fa-bolt"></i></span> -->
+                    </div>
+
+                    <!-- Floating 3D Badges (inspired by reference images) -->
+                    <div class="hero-floating-badge badge-top-left">
+                        <div class="badge-icon react-icon"><i class="fa-brands fa-react"></i></div>
+                        <div class="badge-text">
+                            <strong>React Native</strong>
+                            <span>Specialist</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-floating-badge badge-bottom-right">
+                        <div class="badge-icon app-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                        <div class="badge-text">
+                            <strong>High Performance</strong>
+                            <span>Smooth 60FPS UI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: ABOUT ME -->
+    <section class="section-container" id="page2">
+        <!-- Title in red color container with black title text (outside the card) -->
+        <div class="section-header-wrap">
+            <div class="about-title-container">
+                <h2>ABOUT ME</h2>
+            </div>
+        </div>
+
+        <!-- Bento Grid Container Stacks (No Outer Enclosing Card) -->
+        <div class="about-bento-grid">
+
+            <!-- STACK CARD 1: BIO & SPECIALIZATION SPOTLIGHT (Spans 4 of 6 columns) -->
+            <div class="about-stack-card card-bio-hero">
+                <div class="stack-card-top">
+                    <span class="stack-badge red-pill">
+                        <span class="panel-status-dot"></span>
+                        Mobile App Developer
+                    </span>
+                    <span class="stack-corner-icon"><i class="fa-solid fa-code"></i></span>
+                </div>
+                <div class="stack-card-body">
+                    <h3 class="stack-hero-name">ADITYA MAHIWAL</h3>
+                    <div class="stack-role-line">
+                        <span class="role-highlight">React Native Specialist</span>
+                        <span class="role-sep">•</span>
+                        <span>Cross-Platform Engineer</span>
+                    </div>
+                    <p class="stack-body-text">
+                        I specialize in building modern, responsive, visually appealing, and high-performance mobile
+                        applications with smooth 60FPS animations, intuitive user experiences, and optimized
+                        functionality. My focus is on creating applications that are not only attractive but also
+                        scalable, reliable, and lag-free.
+                    </p>
+                    <div class="stack-pills-row">
+                        <span class="stack-pill"><i class="fa-brands fa-react" style="color: #61dbfb;"></i> React
+                            Native</span>
+                        <span class="stack-pill"><i class="fa-solid fa-feather" style="color: #02569b;"></i>
+                            Flutter</span>
+                        <span class="stack-pill"><i class="fa-brands fa-android" style="color: #3ddc84;"></i> Android
+                            Dev</span>
+                        <span class="stack-pill"><i class="fa-solid fa-network-wired" style="color: #ff2a2a;"></i> REST
+                            APIs</span>
+                        <span class="stack-pill"><i class="fa-solid fa-fire" style="color: #ffa000;"></i>
+                            Firebase</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STACK CARD 2: DYNAMIC CAREER METRICS COUNTER (Spans 2 of 6 columns) -->
+            <div class="about-stack-card card-metrics-stack">
+                <div class="stack-card-top">
+                    <span class="stack-badge grey-pill">
+                        <i class="fa-solid fa-chart-simple"></i> Experience Metrics
+                    </span>
+                    <span class="stack-corner-icon pulse-red"><i class="fa-solid fa-bolt"></i></span>
+                </div>
+                <div class="metrics-stack-list">
+                    <div class="metric-stack-item">
+                        <div class="metric-num" id="bentoTotalExp">3.0+ Yrs</div>
+                        <div class="metric-info">
+                            <span class="metric-label">Total Dev Experience</span>
+                            <span class="metric-note">Job + 6M Internship</span>
+                        </div>
+                    </div>
+                    <div class="metric-stack-item">
+                        <div class="metric-num" id="bentoJobExp">2.4+ Yrs</div>
+                        <div class="metric-info">
+                            <span class="metric-label">Full-Time Job</span>
+                            <span class="metric-note">Delaine Technologies</span>
+                        </div>
+                    </div>
+                    <div class="metric-stack-item">
+                        <div class="metric-num">6 Months</div>
+                        <div class="metric-info">
+                            <span class="metric-label">Mobile Internship</span>
+                            <span class="metric-note">Kodu / Dhurina Ventures</span>
+                        </div>
+                    </div>
+                    <div class="metric-stack-item highlight-item">
+                        <div class="metric-num" id="bentoMcaYear">1st Year</div>
+                        <div class="metric-info">
+                            <span class="metric-label">Ongoing MCA Degree</span>
+                            <span class="metric-note">Chandigarh University</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STACK CARD 3: CURRENT ONGOING MCA SPOTLIGHT (Spans full 6 columns) -->
+            <div class="about-stack-card card-mca-spotlight">
+                <div class="mca-banner-header">
+                    <div>
+                        <span class="mca-live-tag">
+                            <span class="panel-status-dot"></span> CURRENTLY PURSUING • 1ST YEAR
+                        </span>
+                        <h3 class="mca-banner-title">MASTER OF COMPUTER APPLICATIONS (MCA)</h3>
+                        <div class="mca-institution-row">
+                            <i class="fa-solid fa-building-columns"></i>
+                            <strong>Chandigarh University, Chandigarh</strong>
+                            <span class="mca-sep">•</span>
+                            <span>May 2026 – May 2028 (2-Year Master's Degree)</span>
+                        </div>
+                    </div>
+                    <div class="mca-status-badge">
+                        <span class="mca-badge-term" id="bentoMcaTerm">1ST YEAR</span>
+                        <span class="mca-badge-note">Active Session</span>
+                    </div>
+                </div>
+
+                <div class="mca-progress-container">
+                    <div class="mca-progress-header">
+                        <span><i class="fa-regular fa-clock"></i> Program Duration: <strong>May 2026 – May 2028 (2-Year
+                                Program)</strong></span>
+                        <span id="bentoMcaProgressText">1st Year in Progress (~25% Completed)</span>
+                    </div>
+                    <div class="mca-progress-track">
+                        <div class="mca-progress-fill" id="bentoMcaProgressBar" style="width: 25%;"></div>
+                    </div>
+                </div>
+
+                <p class="mca-banner-desc">
+                    Currently in the <strong>1st year</strong> of my 2-year Master of Computer Applications (MCA) at
+                    Chandigarh University (commenced May 2026, graduating in 2028). This advanced program systematically
+                    elevates my expertise across distributed cloud computing, scalable enterprise architectures, machine
+                    learning integration, and advanced database engineering—complementing my everyday production
+                    experience in building mission-critical mobile applications.
+                </p>
+            </div>
+
+            <!-- STACK CARD 4: FULL-TIME DEVELOPER JOB (Delaine Technologies - Spans 3 of 6 columns) -->
+            <div class="about-stack-card card-job-delaine">
+                <div class="stack-card-top">
+                    <span class="stack-badge live-green-pill">
+                        <span class="live-pulse-dot"></span> FULL-TIME ROLE
+                    </span>
+                    <span class="stack-tenure-tag" id="bentoJobTenureBadge">2.4+ Years Active</span>
+                </div>
+                <div class="stack-card-body">
+                    <div class="stack-role-title">Mobile App Developer</div>
+                    <div class="stack-company-name">
+                        <i class="fa-solid fa-building"></i>
+                        <strong>Delaine Technologies Pvt. Ltd.</strong>
+                    </div>
+                    <div class="stack-date-location">
+                        <span><i class="fa-regular fa-calendar"></i> July 2024 – Present (Ongoing)</span>
+                    </div>
+                    <p class="stack-card-desc">
+                        Contributing to developing feature-rich mobile applications, implementing complex business
+                        logic, integrating APIs, and building responsive user interfaces with smooth animations and
+                        performance-focused architecture. Engineered applications across AI wellness, sports betting
+                        analytics, and BNPL fintech.
+                    </p>
+                    <div class="stack-tech-badges">
+                        <span>React Native</span>
+                        <span>Redux Toolkit</span>
+                        <span>Supabase</span>
+                        <span>Firebase</span>
+                        <span>REST APIs</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STACK CARD 5: 6-MONTH INTERNSHIP (Kodu - Powered by Dhurina - Spans 3 of 6 columns) -->
+            <div class="about-stack-card card-internship-kodu">
+                <div class="stack-card-top">
+                    <span class="stack-badge blue-pill">
+                        <i class="fa-solid fa-briefcase"></i> 6-MONTH INTERNSHIP
+                    </span>
+                    <span class="stack-tenure-tag">Jan 2024 – Jun 2024</span>
+                </div>
+                <div class="stack-card-body">
+                    <div class="stack-role-title">Android / Mobile App Development Intern</div>
+                    <div class="stack-company-name">
+                        <i class="fa-solid fa-building"></i>
+                        <strong>Kodu – Powered by Dhurina Ventures Pvt. Ltd.</strong>
+                    </div>
+                    <div class="stack-date-location">
+                        <span><i class="fa-solid fa-location-dot"></i> Hisar, Haryana</span>
+                    </div>
+                    <p class="stack-card-desc">
+                        Completed a 6-month internship focused on mobile application development, working on multiple
+                        live projects and gaining practical industry experience. Worked on building application
+                        features, implementing mobile UI/UX, debugging, improving performance, and developing
+                        application functionality using React Native and modern development tools.
+                    </p>
+                    <div class="stack-tech-badges">
+                        <span>React Native</span>
+                        <span>Android Dev</span>
+                        <span>Mobile UI/UX</span>
+                        <span>Performance Optimization</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STACK CARD 6: KODU APP DEV SPECIALIZATION PROGRAM (Spans 2 of 6 columns) -->
+            <div class="about-stack-card card-edu-kodu">
+                <div class="stack-card-top">
+                    <span class="stack-badge red-pill">
+                        <i class="fa-solid fa-certificate"></i> APP DEV PROGRAM
+                    </span>
+                    <span class="stack-tenure-tag">Jun 2023 – Dec 2023</span>
+                </div>
+                <div class="stack-card-body">
+                    <div class="stack-role-title">App Development Specialization</div>
+                    <div class="stack-company-name">
+                        <i class="fa-solid fa-award"></i>
+                        <strong>KODU – Powered by Dhurina, Hisar</strong>
+                    </div>
+                    <p class="stack-card-desc">
+                        Completed an intensive app development program covering mobile app architecture, UI/UX
+                        fundamentals, React Native, Firebase integration, testing, and deployment. Gained practical
+                        experience through hands-on projects and collaborative development.
+                    </p>
+                    <div class="stack-tech-badges">
+                        <span>React Native Architecture</span>
+                        <span>Testing & Deployment</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STACK CARD 7: BCA DEGREE (Dayanand College, Hisar - Spans 2 of 6 columns) -->
+            <div class="about-stack-card card-edu-bca">
+                <div class="stack-card-top">
+                    <span class="stack-badge green-pill">
+                        <i class="fa-solid fa-graduation-cap"></i> GRADUATED
+                    </span>
+                    <span class="stack-tenure-tag">Apr 2019 – Apr 2024</span>
+                </div>
+                <div class="stack-card-body">
+                    <div class="stack-role-title">Bachelor of Computer Applications (BCA)</div>
+                    <div class="stack-company-name">
+                        <i class="fa-solid fa-building-columns"></i>
+                        <strong>Dayanand College, Hisar</strong>
+                    </div>
+                    <p class="stack-card-desc">
+                        Studied software development, database management, object-oriented programming, data structures,
+                        and web technologies, building strong computational and algorithmic foundations.
+                    </p>
+                    <div class="stack-tech-badges">
+                        <span>Software Engineering</span>
+                        <span>DBMS</span>
+                        <span>Data Structures</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STACK CARD 8: HIGHER SECONDARY SCHOOL (+2 - Spans 2 of 6 columns) -->
+            <div class="about-stack-card card-edu-school">
+                <div class="stack-card-top">
+                    <span class="stack-badge grey-pill">
+                        <i class="fa-solid fa-school"></i> HIGHER SECONDARY (+2)
+                    </span>
+                    <span class="stack-tenure-tag">Mar 2018 – Mar 2019</span>
+                </div>
+                <div class="stack-card-body">
+                    <div class="stack-role-title">Higher Secondary Certificate (+2)</div>
+                    <div class="stack-company-name">
+                        <i class="fa-solid fa-school"></i>
+                        <strong>Vishwas Nav Sharda Public School, Bhuna</strong>
+                    </div>
+                    <p class="stack-card-desc">
+                        Completed Higher Secondary Certificate (+2) in 2019 with foundational curriculum in sciences and
+                        mathematics.
+                    </p>
+                    <div class="stack-tech-badges">
+                        <span>Mathematics</span>
+                        <span>Sciences</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: SKILLS & EXPERTISE -->
+    <section class="section-container" id="page3">
+        <!-- Title in red color container with black title text (outside the card) -->
+        <div class="section-header-wrap">
+            <div class="skills-title-container">
+                <h2>SKILLS & EXPERTISE</h2>
+            </div>
+        </div>
+
+        <!-- Skills Bento Grid -->
+        <div class="skills-bento-grid">
+
+            <!-- Bento Card 1: Primary Spotlight (Spans 2 rows on left) -->
+            <div class="bento-card bento-card-hero">
+                <div class="bento-top-row">
+                    <div class="bento-logo"><i class="fa-solid fa-code"></i> AM</div>
+                    <div class="bento-time-badge" id="bentoClock">
+                        <span>16:20</span>
+                    </div>
+                </div>
+
+                <div class="bento-hero-body">
+                    <span class="bento-label"><i class="fa-solid fa-mobile-screen-button"></i> Primary
+                        Specialization</span>
+                    <h3 class="bento-hero-title">REACT NATIVE & CROSS-PLATFORM MOBILE ARCHITECTURE</h3>
+                    <p class="bento-hero-desc">
+                        Building scalable, high-performance, and lag-free mobile applications with fluid animations,
+                        native bridging, intuitive UX, and clean state logic.
+                    </p>
+                    <div class="bento-hero-tags">
+                        <span class="bento-pill"><i class="fa-brands fa-react" style="color: #61dbfb;"></i> React
+                            Native</span>
+                        <span class="bento-pill"><i class="fa-solid fa-feather" style="color: #02569b;"></i>
+                            Flutter</span>
+                        <span class="bento-pill"><i class="fa-brands fa-android" style="color: #3ddc84;"></i> Android
+                            Development</span>
+                        <span class="bento-pill">Responsive UI Development</span>
+                        <span class="bento-pill">Animated UI & Interactions</span>
+                        <span class="bento-pill">Cross-Platform App Architecture</span>
+                    </div>
+                </div>
+
+                <div class="bento-hero-footer">
+                    <span>DELAINE TECHNOLOGIES</span>
+                    <span>BCA & MCA</span>
+                    <span>CHANDIGARH UNIV</span>
+                </div>
+            </div>
+
+            <!-- Bento Card 2: Programming Languages (Center Top) -->
+            <div class="bento-card bento-card-center-top">
+                <div class="bento-card-header">
+                    <span class="bento-label"><i class="fa-solid fa-code"></i> Languages</span>
+                    <span class="bento-icon-action"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
+                <h3 class="bento-title">CORE PROGRAMMING</h3>
+                <div class="bento-hero-tags">
+                    <span class="bento-pill"><i class="fa-brands fa-js" style="color: #f7df1e;"></i> JavaScript</span>
+                    <span class="bento-pill">TypeScript</span>
+                    <span class="bento-pill"><i class="fa-brands fa-java" style="color: #ea2d2e;"></i> Java</span>
+                    <span class="bento-pill">Dart</span>
+                    <span class="bento-pill">C</span>
+                    <span class="bento-pill">C++</span>
+                    <span class="bento-pill">Basic Flutter Dev</span>
+                </div>
+            </div>
+
+            <!-- Bento Card 3: Live Status / Availability (Right Top) -->
+            <div class="bento-card bento-card-status">
+                <div class="bento-card-header">
+                    <span class="bento-label">Status</span>
+                    <span class="bento-icon-action"><i class="fa-solid fa-plus"></i></span>
+                </div>
+                <div class="bento-status-indicator">
+                    <span class="bento-status-dot"></span>
+                    <span>AVAILABLE FOR HIRE</span>
+                </div>
+                <p style="font-size: 13px; color: #64748b; margin-top: 8px; line-height: 1.4;">
+                    Open for full-time engineering roles, mobile contracts & technical collaborations.
+                </p>
+            </div>
+
+            <!-- Bento Card 4: Say Hello / Work Together (Center Middle) -->
+            <a href="#page6" class="bento-card bento-card-cta">
+                <div class="bento-card-header">
+                    <span class="bento-label">Say Hello 👋</span>
+                    <span class="bento-icon-action"><i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+                <h3 class="bento-title">LET'S WORK TOGETHER</h3>
+                <p style="font-size: 13.5px; color: #64748b; margin: 0; line-height: 1.4;">
+                    Have an idea or need a mobile developer? Reach out anytime.
+                </p>
+            </a>
+
+            <!-- Bento Card 5: State Management & Backend (Right Middle) -->
+            <div class="bento-card bento-card-backend">
+                <div class="bento-card-header">
+                    <span class="bento-label"><i class="fa-solid fa-database"></i> Cloud & State</span>
+                    <span class="bento-icon-action"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
+                <h3 class="bento-title">STATE & BACKEND</h3>
+                <div class="bento-hero-tags">
+                    <span class="bento-pill">Redux.js</span>
+                    <span class="bento-pill">Supabase</span>
+                    <span class="bento-pill">Firebase</span>
+                    <span class="bento-pill">REST API Integration</span>
+                </div>
+            </div>
+
+            <!-- Bento Card 6: Development & Technical Skills (Bottom Left) -->
+            <div class="bento-card bento-card-bottom-1">
+                <div class="bento-card-header">
+                    <span class="bento-label"><i class="fa-solid fa-gears"></i> Engineering</span>
+                    <span class="bento-icon-action"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
+                <h3 class="bento-title">TECHNICAL & OPTIMIZATION</h3>
+                <div class="bento-hero-tags">
+                    <span class="bento-pill">Application Development</span>
+                    <span class="bento-pill">UI/UX Implementation</span>
+                    <span class="bento-pill">Performance Optimization</span>
+                    <span class="bento-pill">Problem Solving</span>
+                    <span class="bento-pill">Debugging & Troubleshooting</span>
+                    <span class="bento-pill">Scalable Architecture</span>
+                </div>
+            </div>
+
+            <!-- Bento Card 7: Soft Skills & Additional (Bottom Center) -->
+            <div class="bento-card bento-card-bottom-2">
+                <div class="bento-card-header">
+                    <span class="bento-label"><i class="fa-solid fa-users"></i> Team & Creative</span>
+                    <span class="bento-icon-action"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
+                <h3 class="bento-title">COLLABORATION & CREATIVE</h3>
+                <div class="bento-hero-tags">
+                    <span class="bento-pill">Team Collaboration</span>
+                    <span class="bento-pill">Communication & Coordination</span>
+                    <span class="bento-pill">Creative Thinking</span>
+                    <span class="bento-pill">Time Management</span>
+                    <span class="bento-pill">Video Editing</span>
+                    <span class="bento-pill">Drawing</span>
+                    <span class="bento-pill">Microsoft Word</span>
+                </div>
+            </div>
+
+            <!-- Bento Card 8: Tools I Use / Daily Stack Dock (Bottom Right) -->
+            <div class="bento-card bento-card-bottom-3">
+                <div class="bento-card-header">
+                    <span class="bento-label"><i class="fa-solid fa-toolbox"></i> Tools I Use</span>
+                    <span class="bento-icon-action"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
+                <h3 class="bento-title">MY DAILY STACK</h3>
+                <div class="bento-tools-dock">
+                    <div class="dock-app-icon" title="React Native / React">
+                        <img src="React.png" alt="React">
+                    </div>
+                    <div class="dock-app-icon" title="Android Studio">
+                        <img src="Android Studio.png" alt="Android Studio">
+                    </div>
+                    <div class="dock-app-icon" title="Xcode">
+                        <img src="Xcode.png" alt="Xcode">
+                    </div>
+                    <div class="dock-app-icon" title="Firebase">
+                        <img src="Firebase.png" alt="Firebase">
+                    </div>
+                    <div class="dock-app-icon" title="TypeScript">
+                        <img src="TypeScript.png" alt="TypeScript">
+                    </div>
+                    <div class="dock-app-icon" title="Git">
+                        <img src="Git.png" alt="Git">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 4: PROJECTS & TOOLS (HORIZONTAL SCROLL ON VERTICAL SCROLL) -->
+    <section class="projects-scroll-wrapper" id="page4">
+        <div class="projects-sticky-container">
+            <div class="projects-header-area">
+                <div class="projects-title-container">
+                    <h2>PROJECTS & TOOLS</h2>
+                </div>
+                <div class="scroll-hint">
+                    <i class="fa-solid fa-arrow-right"></i> Scroll down to explore projects
+                </div>
+            </div>
+
+            <div class="projects-track" id="projectsTrack">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-num">01</span>
+                        <span class="project-badge"><i class="fa-solid fa-brain"></i> AI & Wellness</span>
+                    </div>
+                    <h3 class="project-title">Galinia – AI Meditation & Prayer</h3>
+                    <div class="project-meta">
+                        <div class="project-duration"><i class="fa-regular fa-calendar"></i> October 2025 – May 2026
+                        </div>
+                        <div class="project-company"><i class="fa-solid fa-briefcase"></i> Delaine Technologies Pvt.
+                            Ltd.</div>
+                    </div>
+                    <p class="project-desc">An AI-powered wellness application that creates personalized meditation and
+                        prayer sessions based on users' moods and needs. It includes guided meditation, sleep sessions,
+                        affirmations, relaxing sounds, and a library of ready-made sessions.</p>
+                    <div>
+                        <div class="project-tools-heading">Tools & Technologies</div>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Redux.js</span>
+                            <span class="project-tag">Supabase</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-num">02</span>
+                        <span class="project-badge"><i class="fa-solid fa-chart-line"></i> Sports Analytics</span>
+                    </div>
+                    <h3 class="project-title">The Betting Matrix</h3>
+                    <div class="project-meta">
+                        <div class="project-duration"><i class="fa-regular fa-calendar"></i> December 2025 – April 2026
+                        </div>
+                    </div>
+                    <p class="project-desc">A sports insights application that analyzes multiple data points using
+                        advanced algorithms to provide real-time sports betting predictions through a clean and
+                        user-friendly interface.</p>
+                    <div>
+                        <div class="project-tools-heading">Tools & Technologies</div>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">API Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-num">03</span>
+                        <span class="project-badge"><i class="fa-solid fa-bag-shopping"></i> Fintech & BNPL</span>
+                    </div>
+                    <h3 class="project-title">SlideIT – Shop Now, Pay Later</h3>
+                    <div class="project-meta">
+                        <div class="project-duration"><i class="fa-regular fa-calendar"></i> May 2025 – December 2025
+                        </div>
+                        <div class="project-company"><i class="fa-solid fa-briefcase"></i> Delaine Technologies Pvt.
+                            Ltd.</div>
+                    </div>
+                    <p class="project-desc">A Buy Now, Pay Later (BNPL) application that allows users to shop across
+                        different categories and pay through flexible, interest-free instalments, offering a simple and
+                        convenient shopping experience.</p>
+                    <div>
+                        <div class="project-tools-heading">Tools & Technologies</div>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Redux.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-num">04</span>
+                        <span class="project-badge"><i class="fa-solid fa-calendar-check"></i> Service Booking</span>
+                    </div>
+                    <h3 class="project-title">Vasta – Service Booking Platform</h3>
+                    <div class="project-meta">
+                        <div class="project-duration"><i class="fa-regular fa-calendar"></i> June 2025 – September 2025
+                        </div>
+                        <div class="project-company"><i class="fa-solid fa-briefcase"></i> Delaine Technologies Pvt.
+                            Ltd.</div>
+                    </div>
+                    <p class="project-desc">A UAE-based service booking application that connects users with verified
+                        local businesses across automotive, beauty, wellness, dining, and sports categories. Users can
+                        explore services, compare prices, check availability, and book appointments.</p>
+                    <div>
+                        <div class="project-tools-heading">Tools & Technologies</div>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">REST APIs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-num">05</span>
+                        <span class="project-badge"><i class="fa-solid fa-spa"></i> Beauty & Wellness</span>
+                    </div>
+                    <h3 class="project-title">Sander Aesthetics</h3>
+                    <div class="project-meta">
+                        <div class="project-duration"><i class="fa-regular fa-calendar"></i> October 2024 – May 2025
+                        </div>
+                        <div class="project-company"><i class="fa-solid fa-briefcase"></i> Delaine Technologies Pvt.
+                            Ltd.</div>
+                    </div>
+                    <p class="project-desc">An all-in-one beauty and wellness application that allows users to book
+                        aesthetic treatments, purchase skincare products, and explore professional training and
+                        certification programs.</p>
+                    <div>
+                        <div class="project-tools-heading">Tools & Technologies</div>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">API Integration</span>
+                            <span class="project-tag">Mobile UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-card-top">
+                        <span class="project-num">06</span>
+                        <span class="project-badge"><i class="fa-solid fa-broom"></i> On-Demand Services</span>
+                    </div>
+                    <h3 class="project-title">AMAB Cleaning</h3>
+                    <div class="project-meta">
+                        <div class="project-duration"><i class="fa-regular fa-calendar"></i> January 2025 – April 2025
+                        </div>
+                        <div class="project-company"><i class="fa-solid fa-briefcase"></i> Delaine Technologies Pvt.
+                            Ltd.</div>
+                    </div>
+                    <p class="project-desc">A professional home cleaning service application that allows users to
+                        explore cleaning services and schedule appointments conveniently, making home maintenance easier
+                        and more accessible.</p>
+                    <div>
+                        <div class="project-tools-heading">Tools & Technologies</div>
+                        <div class="project-tags">
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">API Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Development Tools & Technologies Card -->
+                <div class="core-tools-card">
+                    <div>
+                        <h3><i class="fa-solid fa-toolbox" style="color: #ff2a2a;"></i> Core Development Tools & Tech
+                        </h3>
+                        <div class="core-tool-group">
+                            <span class="core-tool-label">Frontend & Mobile</span>
+                            <div class="core-tool-pills">
+                                <span class="project-tag">React Native</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">TypeScript</span>
+                                <span class="project-tag">Flutter</span>
+                                <span class="project-tag">Dart</span>
+                            </div>
+                        </div>
+                        <div class="core-tool-group">
+                            <span class="core-tool-label">State Management</span>
+                            <div class="core-tool-pills">
+                                <span class="project-tag">Redux.js</span>
+                                <span class="project-tag">Redux Toolkit</span>
+                            </div>
+                        </div>
+                        <div class="core-tool-group">
+                            <span class="core-tool-label">Backend & Database</span>
+                            <div class="core-tool-pills">
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Supabase</span>
+                            </div>
+                        </div>
+                        <div class="core-tool-group">
+                            <span class="core-tool-label">Development & Architecture</span>
+                            <div class="core-tool-pills">
+                                <span class="project-tag">REST APIs</span>
+                                <span class="project-tag">Android Development</span>
+                                <span class="project-tag">Responsive UI</span>
+                                <span class="project-tag">Animations</span>
+                                <span class="project-tag">Performance Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: BLOGS -->
+    <section class="section-container" id="page5">
+        <!-- Title in red color container with black title text (outside the cards) -->
+        <div class="section-header-wrap">
+            <div class="blogs-title-container">
+                <h2>MY BLOGS</h2>
+            </div>
+        </div>
+
+        <!-- Blogs Grid (2x2) -->
+        <div class="blogs-grid">
+            <!-- Blog 1: Linux -->
+            <article class="blog-card">
+                <div>
+                    <div class="blog-card-header">
+                        <span class="blog-category-badge"><i class="fa-brands fa-linux"></i> Operating Systems</span>
+                        <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 4 min read</span>
+                    </div>
+                    <h3 class="blog-title">Linux: The Kernel That Powers the World</h3>
+                    <p class="blog-desc">
+                        Linux is an open-source operating system that is based on the Unix kernel. It was created by a
+                        Finnish student named Linus Torvalds in 1991, who wanted to make a free and better version of
+                        Unix for his personal computer. He released the source code of Linux on the internet and invited
+                        other programmers to join him in developing and improving it. Since then, Linux has grown into a
+                        huge and diverse community of developers and users, who contribute to various versions or
+                        distributions of Linux, such as Ubuntu, Fedora, Mint, Debian, and many more. Linux is popular
+                        among tech enthusiasts, programmers, hackers, and anyone who loves freedom and customization.
+                        Linux is also widely used in servers, supercomputers, embedded devices, and smartphones. You can
+                        run Linux on almost any hardware, from a Raspberry Pi to a NASA rover. Linux is also known for
+                        its stability, security, and performance. It rarely crashes, gets infected by viruses, or slows
+                        down over time.
+                    </p>
+                </div>
+                <div class="blog-footer">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Kernel</span>
+                        <span class="blog-tag">Open Source</span>
+                        <span class="blog-tag">Ubuntu</span>
+                        <span class="blog-tag">Linus Torvalds</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog 2: Unix -->
+            <article class="blog-card">
+                <div>
+                    <div class="blog-card-header">
+                        <span class="blog-category-badge"><i class="fa-solid fa-server"></i> System Architecture</span>
+                        <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 4 min read</span>
+                    </div>
+                    <h3 class="blog-title">Unix: The Origin of Modern Computing</h3>
+                    <p class="blog-desc">
+                        Unix is an older operating system that was developed by AT&T Bell Labs in the 1970s. It was
+                        designed to be a portable, multi-user, and multi-tasking system that could run on different
+                        types of machines. Unix was also the first operating system to use a graphical user interface
+                        (GUI), which made it easier to interact with the computer using a mouse and windows. Unix was
+                        revolutionary for its time, and influenced many other operating systems, including Linux, MacOS,
+                        and Windows. Unix is still used today, mainly in academic, scientific, and industrial settings.
+                        Some of the most common variants of Unix are BSD, Solaris, AIX, and HP-UX. Unix is also the
+                        basis of iOS and Android, the operating systems that power most of the smartphones in the world.
+                    </p>
+                </div>
+                <div class="blog-footer">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Bell Labs</span>
+                        <span class="blog-tag">POSIX</span>
+                        <span class="blog-tag">Multi-Tasking</span>
+                        <span class="blog-tag">BSD</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog 3: AI in Mobile App Development -->
+            <article class="blog-card">
+                <div>
+                    <div class="blog-card-header">
+                        <span class="blog-category-badge"><i class="fa-solid fa-mobile-screen-button"></i> Mobile & AI Reality</span>
+                        <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 4 min read</span>
+                    </div>
+                    <h3 class="blog-title">"AI is Going to Kill Mobile App Development!"</h3>
+                    <div class="blog-desc">
+                        <p>
+                            I hear this every single day. People honestly believe you can just type <em>"Build me an app"</em> and AI will do all the work. Here is what that "vibe coding" dream actually looks like versus reality:
+                        </p>
+                        <p>
+                            <strong>The Non-Dev Expectation:</strong><br>
+                            Prompt: <em>"Build me a React Native screen that loads a list of 500 items with images."</em><br>
+                            • <strong>The Reality:</strong> AI generates a simple <code>.map()</code> function or basic component. It works fine on a high-end iPhone with 5 items, but on a normal Android phone with 500 items, the screen instantly freezes, memory usage spikes, and the app crashes.
+                        </p>
+                        <p>
+                            <strong>The Developer Reality:</strong><br>
+                            • We know that rendering large lists requires optimized virtualized lists, memoized items, and lazy image loading. We can ask AI for boilerplate code, but when performance drops or memory leaks happen, AI has no idea why—it just keeps suggesting the exact same broken code over and over.
+                        </p>
+                        <p>
+                            Let's be clear: AI is far from perfect. It hallucinates outdated packages, creates infinite re-render loops, and gets hopelessly stuck on critical bugs.
+                        </p>
+                        <p>
+                            When your React Native or Flutter app freezes, AI doesn't know how to inspect the bridge or profile memory usage. You still need an actual developer who understands how mobile hardware works to fix the mess. <strong>Prompting gets you a static screen. Engineering gets you an app that actually runs without crashing.</strong>
+                        </p>
+                        <p style="margin-top: 14px; color: #ff2a2a; font-weight: 600;">
+                            How often has AI given you code that looked right on paper but completely broke in real testing?
+                        </p>
+                    </div>
+                </div>
+                <div class="blog-footer">
+                    <div class="blog-tags">
+                        <span class="blog-tag">React Native</span>
+                        <span class="blog-tag">Mobile Engineering</span>
+                        <span class="blog-tag">AI vs Reality</span>
+                        <span class="blog-tag">Performance</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Blog 4: Programming & AI -->
+            <article class="blog-card">
+                <div>
+                    <div class="blog-card-header">
+                        <span class="blog-category-badge"><i class="fa-solid fa-microchip"></i> Future of Tech</span>
+                        <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 5 min read</span>
+                    </div>
+                    <h3 class="blog-title">Programming: The Evolution Beyond Manual Code</h3>
+                    <p class="blog-desc">
+                        I believe that the conventional idea of "writing a program" is headed for extinction, and
+                        indeed, for all but very specialized applications, most software, as we know it, will be
+                        replaced by AI systems that are trained rather than programmed. In situations where one needs a
+                        "simple" program (after all, not everything should require a model of hundreds of billions of
+                        parameters running on a cluster of GPUs), those programs will, themselves, be generated by an AI
+                        rather than coded by hand. I don't think this idea is crazy. No doubt the earliest pioneers of
+                        Computer Science, emerging from the (relatively) primitive cave of Electrical Engineering,
+                        stridently believed that all future Computer Scientists would need to command a deep
+                        understanding of semiconductors, binary arithmetic, and microprocessor design to understand
+                        software.
+                    </p>
+                </div>
+                <div class="blog-footer">
+                    <div class="blog-tags">
+                        <span class="blog-tag">Artificial Intelligence</span>
+                        <span class="blog-tag">Software Evolution</span>
+                        <span class="blog-tag">Future of Tech</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- SECTION 6: GET IN TOUCH & CONTACT -->
+    <section class="section-container" id="page6">
+        <!-- Title in red color container with black title text (outside the card) -->
+        <div class="section-header-wrap">
+            <div class="contact-title-container">
+                <h2>GET IN TOUCH</h2>
+            </div>
+        </div>
+
+        <!-- Contact Container Stacks Grid (No Outer Enclosing Card) -->
+        <div class="contact-grid">
+
+            <!-- STACK CARD 1: DIRECT CHANNELS & AVAILABILITY -->
+            <div class="contact-stack-card">
+                <div>
+                    <div class="contact-header">
+                        <span class="contact-status-pill">
+                            <span class="live-pulse-dot"></span> AVAILABLE FOR OPPORTUNITIES
+                        </span>
+                        <h3 class="contact-card-title">LET'S BUILD SOMETHING EXCEPTIONAL</h3>
+                        <p class="contact-card-desc">
+                            Looking for a dedicated React Native specialist to craft your next mobile app, optimize
+                            architecture, or explore engineering collaborations? Reach out directly through any channel!
+                        </p>
+                    </div>
+
+                    <div class="channels-list">
+                        <!-- Email -->
+                        <a href="mailto:adiaditya144@gmail.com" class="channel-tile" title="Send email to Aditya">
+                            <div class="channel-info-group">
+                                <div class="channel-icon email-icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="channel-details">
+                                    <span class="channel-label">Email Address</span>
+                                    <span class="channel-value">adiaditya144@gmail.com</span>
+                                </div>
+                            </div>
+                            <span class="channel-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+
+                        <!-- Phone / WhatsApp -->
+                        <a href="tel:+919812531441" class="channel-tile" title="Call or WhatsApp Aditya">
+                            <div class="channel-info-group">
+                                <div class="channel-icon phone-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="channel-details">
+                                    <span class="channel-label">Phone / WhatsApp</span>
+                                    <span class="channel-value">+91 98125-31441</span>
+                                </div>
+                            </div>
+                            <span class="channel-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/in/aditya-mahiwal-4b6907292/" target="_blank"
+                            rel="noopener noreferrer" class="channel-tile" title="Connect on LinkedIn">
+                            <div class="channel-info-group">
+                                <div class="channel-icon linkedin-icon">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </div>
+                                <div class="channel-details">
+                                    <span class="channel-label">LinkedIn Profile</span>
+                                    <span class="channel-value">Aditya Mahiwal</span>
+                                </div>
+                            </div>
+                            <span class="channel-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+
+                        <!-- GitHub -->
+                        <a href="https://github.com/Aditya886" target="_blank" rel="noopener noreferrer"
+                            class="channel-tile" title="View GitHub Repositories">
+                            <div class="channel-info-group">
+                                <div class="channel-icon github-icon">
+                                    <i class="fa-brands fa-github"></i>
+                                </div>
+                                <div class="channel-details">
+                                    <span class="channel-label">GitHub Repository</span>
+                                    <span class="channel-value">Aditya886</span>
+                                </div>
+                            </div>
+                            <span class="channel-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-location-bar">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hisar / Chandigarh, India • IST (UTC+5:30)</span>
+                </div>
+            </div>
+
+            <!-- STACK CARD 2: INTERACTIVE MESSAGE FORM -->
+            <div class="contact-stack-card">
+                <div>
+                    <div class="form-header">
+                        <span class="stack-badge red-pill">
+                            <i class="fa-regular fa-paper-plane"></i> Quick Message
+                        </span>
+                        <h3 class="contact-card-title" style="margin-top: 10px;">SEND ME A MESSAGE</h3>
+                        <p class="contact-card-desc">
+                            Have an idea, project, or role to discuss? Fill out the form and I'll get back to you
+                            promptly.
+                        </p>
+                    </div>
+
+                    <form class="contact-form" id="portfolioContactForm" onsubmit="handleContactSubmit(event)">
+                        <div class="form-field-group">
+                            <label for="contactName">Your Name</label>
+                            <input type="text" id="contactName" placeholder="e.g. John Doe" required>
+                        </div>
+
+                        <div class="form-field-group">
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" placeholder="e.g. john@example.com" required>
+                        </div>
+
+                        <div class="form-field-group">
+                            <label for="contactSubject">Subject / Topic</label>
+                            <input type="text" id="contactSubject"
+                                placeholder="e.g. Mobile App Project / Job Opportunity" required>
+                        </div>
+
+                        <div class="form-field-group">
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" rows="4"
+                                placeholder="Tell me about your project, idea, or questions..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="contact-submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-icon-circle">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Modern Theme-Aware Footer -->
+        <footer class="portfolio-footer">
+            <div class="footer-top-row">
+                <div class="footer-brand-title">PORTFOLIO <span>•</span> ADITYA MAHIWAL</div>
+                <div class="footer-links-row">
+                    <a href="#page1">Home</a>
+                    <a href="#page2">About Me</a>
+                    <a href="#page3">Services</a>
+                    <a href="#page4">Projects</a>
+                    <a href="#page5">Blogs</a>
+                    <a href="#page6">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom-row">
+                <span>© 2026 Aditya Mahiwal. Crafted with clean architecture & modern web technologies.</span>
+                <a href="#page1" class="footer-back-to-top">
+                    <span>Back to Top</span>
+                    <i class="fa-solid fa-arrow-up"></i>
+                </a>
+            </div>
+        </footer>
+    </section>
+
+    <!-- JavaScript for Mobile Menu, Smooth Underline, and Dynamic Screen-Aware Themes -->
+    <script>
+        // Mobile Navigation Toggle
+        const pillMobToggle = document.getElementById('pillMobToggle');
+        const pillMobDropdown = document.getElementById('pillMobDropdown');
+
+        if (pillMobToggle && pillMobDropdown) {
+            pillMobToggle.addEventListener('click', () => {
+                pillMobToggle.classList.toggle('open');
+                pillMobDropdown.classList.toggle('open');
+            });
+
+            // Close dropdown when any link is clicked & immediately apply theme
+            document.querySelectorAll('.pill-mob-link, .pill-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    pillMobToggle.classList.remove('open');
+                    pillMobDropdown.classList.remove('open');
+                    const targetId = (link.getAttribute('href') || '').replace('#', '');
+                    if (targetId) {
+                        updateNavbarTheme(targetId);
+                    }
+                });
+            });
+        }
+
+        // Dynamic Screen-Aware Navbar Theme
+        // White/Light screen: Navbar background is BLACK, text is WHITE
+        // Dark screen: Navbar background is WHITE, text is BLACK
+        const sectionScreenTheme = {
+            'page1': 'light',  // White dot matrix screen -> Black navbar, white text
+            'page2': 'light',  // White dot matrix screen -> Black navbar, white text
+            'page3': 'light',  // White dot matrix screen -> Black navbar, white text
+            'page4': 'light',  // White dot matrix screen -> Black navbar, white text
+            'page5': 'light',  // White dot matrix screen -> Black navbar, white text
+            'page6': 'light'   // White dot matrix screen -> Black navbar, white text
+        };
+
+        const pillNavbar = document.getElementById('pillNavbar');
+        const mainHeader = document.querySelector('.Main');
+
+        function updateNavbarTheme(currentId) {
+            const isDarkBody = document.body.classList.contains('dark-theme');
+            const screenType = isDarkBody ? 'dark' : (sectionScreenTheme[currentId] || 'light');
+            if (screenType === 'dark') {
+                if (pillNavbar) {
+                    pillNavbar.classList.add('nav-on-dark');
+                    pillNavbar.classList.remove('nav-on-light');
+                }
+                if (mainHeader) {
+                    mainHeader.classList.add('on-dark-screen');
+                    mainHeader.classList.remove('on-light-screen');
+                }
+            } else {
+                if (pillNavbar) {
+                    pillNavbar.classList.add('nav-on-light');
+                    pillNavbar.classList.remove('nav-on-dark');
+                }
+                if (mainHeader) {
+                    mainHeader.classList.add('on-light-screen');
+                    mainHeader.classList.remove('on-dark-screen');
+                }
+            }
+        }
+
+        // Active Link Highlight on Scroll and Click
+        const sectionIds = ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'];
+
+        function getActiveSection() {
+            const scrollPos = window.scrollY + 220;
+            let current = sectionIds[0];
+
+            for (let i = 0; i < sectionIds.length; i++) {
+                const id = sectionIds[i];
+                const el = document.getElementById(id);
+                if (el) {
+                    const top = el.getBoundingClientRect().top + window.scrollY;
+                    if (scrollPos >= top) {
+                        current = id;
+                    }
+                }
+            }
+
+            // If scrolled near bottom of page, activate the last section
+            if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+                current = sectionIds[sectionIds.length - 1];
+            }
+
+            return current;
+        }
+
+        function updateNavHighlight() {
+            const current = getActiveSection();
+            document.querySelectorAll('.pill-link, .pill-mob-link').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === `#${current}`) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            updateNavbarTheme(current);
+        }
+
+        window.addEventListener('scroll', updateNavHighlight, { passive: true });
+        window.addEventListener('load', updateNavHighlight);
+        document.addEventListener('DOMContentLoaded', updateNavHighlight);
+
+        // Theme Toggle (Moon / Sun interaction)
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                const isDark = document.body.classList.contains('dark-theme');
+                themeToggle.innerHTML = isDark
+                    ? `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`
+                    : `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+                updateNavHighlight();
+            });
+        }
+
+        // Horizontal Scroll for Projects on Vertical Page Scroll
+        const projectsWrapper = document.getElementById('page4');
+        const projectsTrack = document.getElementById('projectsTrack');
+
+        function handleProjectsScroll() {
+            if (!projectsWrapper || !projectsTrack) return;
+
+            // In mobile screen (<= 768px), horizontal touch scroll is used
+            if (window.innerWidth <= 768) {
+                projectsTrack.style.transform = 'none';
+                return;
+            }
+
+            const rect = projectsWrapper.getBoundingClientRect();
+            const windowH = window.innerHeight;
+            const maxScroll = projectsWrapper.offsetHeight - windowH;
+
+            if (maxScroll <= 0) return;
+
+            // Scrolled distance from the top of the wrapper
+            const scrolled = -rect.top;
+            const progress = Math.min(Math.max(scrolled / maxScroll, 0), 1);
+
+            // Calculate total scroll distance needed
+            const containerWidth = projectsTrack.parentElement.clientWidth;
+            const maxTranslate = Math.max(0, projectsTrack.scrollWidth - containerWidth + 60);
+
+            projectsTrack.style.transform = `translateX(-${progress * maxTranslate}px)`;
+        }
+
+        window.addEventListener('scroll', handleProjectsScroll, { passive: true });
+        window.addEventListener('resize', handleProjectsScroll);
+        window.addEventListener('load', handleProjectsScroll);
+
+        // Dynamic Clock for Skills Bento Grid
+        function updateBentoClock() {
+            const clockEl = document.getElementById('bentoClock');
+            if (!clockEl) return;
+            const now = new Date();
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const day = days[now.getDay()];
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            clockEl.innerHTML = `${day} <span>${hours}:${minutes}</span>`;
+        }
+        updateBentoClock();
+        setInterval(updateBentoClock, 10000);
+
+        // Dynamic Career Experience & Ongoing MCA Calculator
+        function updateDynamicCareerExperience() {
+            const now = new Date();
+
+            // 1. Full-Time Developer Job: Started July 1, 2024 (at Delaine Technologies)
+            const jobStart = new Date(2024, 6, 1); // July 1, 2024
+            let jobMonths = (now.getFullYear() - jobStart.getFullYear()) * 12 + (now.getMonth() - jobStart.getMonth());
+            if (now.getDate() < jobStart.getDate()) jobMonths -= 1;
+            if (jobMonths < 0) jobMonths = 0;
+
+            const jobYearsDecimal = (jobMonths / 12).toFixed(1);
+
+            // 2. 6-Month Intensive Internship (Jan 2024 - June 2024 at Kodu / Dhurina)
+            const internshipMonths = 6;
+            const totalMonths = jobMonths + internshipMonths;
+            const totalYearsDecimal = (totalMonths / 12).toFixed(1);
+
+            // 3. Ongoing MCA at Chandigarh University (May 1, 2026 to May 1, 2028 = 24 Months)
+            const mcaStart = new Date(2026, 4, 1); // May 1, 2026
+            let mcaElapsedMonths = (now.getFullYear() - mcaStart.getFullYear()) * 12 + (now.getMonth() - mcaStart.getMonth());
+            if (now.getDate() < mcaStart.getDate()) mcaElapsedMonths -= 1;
+            if (mcaElapsedMonths < 0) mcaElapsedMonths = 0;
+
+            const mcaProgressPercent = Math.min(100, Math.max(8, Math.round((mcaElapsedMonths / 24) * 100)));
+            const mcaYearText = mcaElapsedMonths < 12 ? '1st Year' : '2nd Year';
+
+            // Update UI elements across both metrics views
+            const elTotalExp = document.getElementById('metricTotalExp');
+            if (elTotalExp) elTotalExp.textContent = `${totalYearsDecimal}+ Yrs`;
+            const elBentoTotalExp = document.getElementById('bentoTotalExp');
+            if (elBentoTotalExp) elBentoTotalExp.textContent = `${totalYearsDecimal}+ Yrs`;
+
+            const elJobExp = document.getElementById('metricJobExp');
+            if (elJobExp) elJobExp.textContent = `${jobYearsDecimal}+ Yrs`;
+            const elBentoJobExp = document.getElementById('bentoJobExp');
+            if (elBentoJobExp) elBentoJobExp.textContent = `${jobYearsDecimal}+ Yrs`;
+
+            const elJobExpInline = document.getElementById('liveJobExpInline');
+            if (elJobExpInline) elJobExpInline.innerHTML = `<strong>${jobYearsDecimal}+ years</strong>`;
+
+            const elJobDurationBadge = document.getElementById('jobDurationBadge');
+            if (elJobDurationBadge) elJobDurationBadge.textContent = `${jobYearsDecimal}+ Years (Active)`;
+            const elBentoJobTenureBadge = document.getElementById('bentoJobTenureBadge');
+            if (elBentoJobTenureBadge) elBentoJobTenureBadge.textContent = `${jobYearsDecimal}+ Years Active`;
+
+            const elMcaStatus = document.getElementById('metricMcaStatus');
+            if (elMcaStatus) elMcaStatus.textContent = mcaYearText;
+            const elBentoMcaYear = document.getElementById('bentoMcaYear');
+            if (elBentoMcaYear) elBentoMcaYear.textContent = mcaYearText;
+
+            const elMcaYearBadge = document.getElementById('mcaYearBadge');
+            if (elMcaYearBadge) elMcaYearBadge.textContent = mcaYearText.toUpperCase();
+            const elBentoMcaTerm = document.getElementById('bentoMcaTerm');
+            if (elBentoMcaTerm) elBentoMcaTerm.textContent = mcaYearText.toUpperCase();
+
+            const elEduMcaBadge = document.getElementById('eduMcaBadge');
+            if (elEduMcaBadge) elEduMcaBadge.textContent = `${mcaYearText} (Ongoing)`;
+
+            const elMcaProgressText = document.getElementById('mcaProgressText');
+            if (elMcaProgressText) elMcaProgressText.textContent = `${mcaYearText} in Progress (~${mcaProgressPercent}% Completed)`;
+            const elBentoMcaProgressText = document.getElementById('bentoMcaProgressText');
+            if (elBentoMcaProgressText) elBentoMcaProgressText.textContent = `${mcaYearText} in Progress (~${mcaProgressPercent}% Completed)`;
+
+            const elMcaProgressBar = document.getElementById('mcaProgressBar');
+            if (elMcaProgressBar) elMcaProgressBar.style.width = `${mcaProgressPercent}%`;
+            const elBentoMcaProgressBar = document.getElementById('bentoMcaProgressBar');
+            if (elBentoMcaProgressBar) elBentoMcaProgressBar.style.width = `${mcaProgressPercent}%`;
+        }
+        updateDynamicCareerExperience();
+
+        // Contact Form Mailto Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+
+            const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+            const mailtoUrl = `mailto:adiaditya144@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailtoUrl;
+        }
+    </script>
+</body>
+
+</html>

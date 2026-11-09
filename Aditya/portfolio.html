@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio</title>
+    <style>
+        /* ============================================================
+           ORIGINAL CSS — untouched (colours, images, animations, fonts)
+           Only width:1920px / fixed px positions replaced with fluid values
+           ============================================================ */
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: poppins;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: prime;
+            src: url(MBF\ Prime.ttf);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [id^="page"], a[name^="page"] {
+            scroll-margin-top: 100px;
+            display: block;
+        }
+
+        /* ---- HERO ---- */
+        .black {
+            background-color: black;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .hero {
+            background-image: url(bg2.jpg);
+            background-position: top right;
+            background-size: 75%;
+            min-height: 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 100%;
+        }
+
+        .Main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            z-index: 1000;
+            width: 100%;
+            top: 0;
+            left: 0;
+            padding: 20px clamp(16px, 2.6vw, 50px);
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .Main > * {
+            pointer-events: auto;
+        }
+
+        .a {
+            position: relative;
+            font-weight: 700;
+            font-size: clamp(24px, 2.1vw, 40px);
+            color: white;
+            text-shadow: 0px 0px 5px rgb(147, 39, 255);
+            cursor: default;
+            user-select: none;
+            white-space: nowrap;
+            transition: color 0.35s ease, text-shadow 0.35s ease;
+        }
+
+        .Main.on-dark-screen .a {
+            color: #ffffff;
+            text-shadow: 0px 0px 5px rgb(147, 39, 255);
+        }
+
+        .Main.on-light-screen .a {
+            color: #000000;
+            text-shadow: 0px 0px 8px rgba(147, 39, 255, 0.6);
+        }
+
+        .lio {
+            color: rgb(238, 160, 255);
+            text-shadow: 0 0 10px rgb(206, 130, 238);
+            animation: portfolio 2s linear 2s infinite alternate;
+        }
+
+        @keyframes portfolio {
+            0%   { color: rgb(238, 160, 255); text-shadow: 0 0 10px rgb(75, 24, 97); }
+            50%  { color: rgb(160, 255, 252); text-shadow: 0 0 10px rgb(15, 121, 119); }
+            100% { color: #135a13;            text-shadow: 0 0 10px rgb(58, 58, 58); }
+        }
+
+        .option {
+            display: flex;
+            position: relative;
+            right: clamp(10px, 2.6vw, 50px);
+            z-index: 1;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        /* Nav buttons — original style, just fluid padding */
+        .option1,.option2,.option3,.option4,.option5,.option6 {
+            padding: clamp(12px,1.6vw,30px) clamp(8px,0.8vw,15px) 20px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            background-color: rgba(228, 101, 253, 0.723);
+            border: 1px purple solid;
+            font-weight: 800;
+            cursor: pointer;
+            font-family: poppins;
+            font-size: clamp(11px, 0.9vw, 16px);
+            transition: padding-top 0.2s, box-shadow 0.2s;
+        }
+
+        .option1:hover,.option2:hover,.option3:hover,
+        .option4:hover,.option5:hover,.option6:hover {
+            padding-top: clamp(30px, 4.7vw, 90px);
+            background-color: rgb(215, 70, 255);
+            box-shadow: 0px 0px 100px rgb(128, 0, 255);
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        /* ============================================================
+           PILL NAVBAR (Dynamic Contrast Navbar)
+           On black screen: navbar background is WHITE, text is BLACK
+           On white/other screen: navbar background is BLACK, text is WHITE
+           ============================================================ */
+        .pill-navbar {
+            pointer-events: auto;
+            position: relative;
+            border-radius: 9999px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .pill-nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 6px 6px 6px 22px;
+            gap: 22px;
+        }
+
+        /* Desktop Links Base */
+        .pill-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pill-link {
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            padding: 6px 2px;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .pill-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 2px;
+            border-radius: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Right Actions Base */
+        .pill-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .theme-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .talk-btn {
+            font-size: 13.5px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            padding: 10px 24px;
+            border-radius: 9999px;
+            text-decoration: none;
+            white-space: nowrap;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .talk-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Toggle Base */
+        .pill-mob-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        .pill-mob-toggle span {
+            display: block;
+            width: 18px;
+            height: 2px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .pill-mob-toggle.open span:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+        .pill-mob-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .pill-mob-toggle.open span:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        /* Mobile Dropdown Base */
+        .pill-mob-dropdown {
+            display: none;
+            flex-direction: column;
+            padding: 10px 14px 14px;
+            gap: 6px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .pill-mob-dropdown.open {
+            display: flex;
+        }
+
+        .pill-mob-link {
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 500;
+            padding: 9px 14px;
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+
+        /* ------------------------------------------------------------
+           THEME 1: ON BLACK / DARK SCREEN -> Navbar is WHITE, Text is BLACK
+           ------------------------------------------------------------ */
+        .pill-navbar.nav-on-dark,
+        .pill-navbar:not(.nav-on-light) {
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .pill-navbar.nav-on-dark .pill-link,
+        .pill-navbar:not(.nav-on-light) .pill-link {
+            color: #4b5563;
+        }
+
+        .pill-navbar.nav-on-dark .pill-link:hover,
+        .pill-navbar:not(.nav-on-light) .pill-link:hover {
+            color: #000000;
+        }
+
+        .pill-navbar.nav-on-dark .pill-link.active,
+        .pill-navbar:not(.nav-on-light) .pill-link.active {
+            color: #e65100;
+            font-weight: 600;
+        }
+
+        .pill-navbar.nav-on-dark .pill-link.active::after,
+        .pill-navbar:not(.nav-on-light) .pill-link.active::after {
+            background-color: #e65100;
+        }
+
+        .pill-navbar.nav-on-dark .theme-btn,
+        .pill-navbar:not(.nav-on-light) .theme-btn {
+            border: 1px solid rgba(0, 0, 0, 0.18);
+            background: rgba(0, 0, 0, 0.04);
+            color: #111111;
+        }
+
+        .pill-navbar.nav-on-dark .theme-btn:hover,
+        .pill-navbar:not(.nav-on-light) .theme-btn:hover {
+            border-color: rgba(0, 0, 0, 0.35);
+            background: rgba(0, 0, 0, 0.08);
+            color: #000000;
+        }
+
+        .pill-navbar.nav-on-dark .talk-btn,
+        .pill-navbar:not(.nav-on-light) .talk-btn {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .pill-navbar.nav-on-dark .talk-btn:hover,
+        .pill-navbar:not(.nav-on-light) .talk-btn:hover {
+            background-color: #262626;
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-toggle,
+        .pill-navbar:not(.nav-on-light) .pill-mob-toggle {
+            border: 1px solid rgba(0, 0, 0, 0.18);
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-toggle span,
+        .pill-navbar:not(.nav-on-light) .pill-mob-toggle span {
+            background: #111111;
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-dropdown,
+        .pill-navbar:not(.nav-on-light) .pill-mob-dropdown {
+            background: #ffffff;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-link,
+        .pill-navbar:not(.nav-on-light) .pill-mob-link {
+            color: #374151;
+        }
+
+        .pill-navbar.nav-on-dark .pill-mob-link:hover,
+        .pill-navbar.nav-on-dark .pill-mob-link.active,
+        .pill-navbar:not(.nav-on-light) .pill-mob-link:hover,
+        .pill-navbar:not(.nav-on-light) .pill-mob-link.active {
+            color: #e65100;
+            background: rgba(230, 81, 0, 0.1);
+        }
+
+        /* ------------------------------------------------------------
+           THEME 2: ON WHITE / OTHER SCREEN -> Navbar is BLACK, Text is WHITE
+           ------------------------------------------------------------ */
+        .pill-navbar.nav-on-light {
+            background: rgba(8, 8, 10, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 32px rgba(0, 0, 0, 0.7), 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .pill-navbar.nav-on-light .pill-link {
+            color: #b5b5be;
+        }
+
+        .pill-navbar.nav-on-light .pill-link:hover {
+            color: #ffffff;
+        }
+
+        .pill-navbar.nav-on-light .pill-link.active {
+            color: #ff7500;
+            font-weight: 600;
+        }
+
+        .pill-navbar.nav-on-light .pill-link.active::after {
+            background-color: #ff7500;
+        }
+
+        .pill-navbar.nav-on-light .theme-btn {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.03);
+            color: #e5e7eb;
+        }
+
+        .pill-navbar.nav-on-light .theme-btn:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .pill-navbar.nav-on-light .talk-btn {
+            background-color: #ffffff;
+            color: #08080a;
+        }
+
+        .pill-navbar.nav-on-light .talk-btn:hover {
+            background-color: #f2f2f2;
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-toggle {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-toggle span {
+            background: #ffffff;
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-dropdown {
+            background: #08080a;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-link {
+            color: #d1d5db;
+        }
+
+        .pill-navbar.nav-on-light .pill-mob-link:hover,
+        .pill-navbar.nav-on-light .pill-mob-link.active {
+            color: #ff7500;
+            background: rgba(255, 117, 0, 0.12);
+        }
+
+        @media (max-width: 1080px) {
+            .pill-links {
+                display: none;
+            }
+            .pill-mob-toggle {
+                display: flex;
+            }
+            .pill-navbar {
+                border-radius: 28px;
+            }
+            .pill-nav-inner {
+                padding: 6px 8px;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Main {
+                padding: 14px 16px;
+            }
+            .a {
+                font-size: 22px;
+            }
+            .talk-btn {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+            .theme-btn, .pill-mob-toggle {
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        /* Hero intro */
+        .input {
+            position: relative;
+            top: clamp(160px, 30vh, 300px);
+            left: clamp(16px, 15.6vw, 300px);
+            width: min(800px, 90%);
+            cursor: default;
+        }
+
+        .intro {
+            display: block;
+            color: white;
+            font-size: clamp(22px, 2.6vw, 50px);
+            font-weight: 700;
+        }
+
+        .name {
+            font-size: clamp(60px, 10vw, 140px);
+            cursor: none;
+            font-family: "prime";
+            animation: aditya 2s alternate 1s infinite;
+        }
+
+        @keyframes aditya {
+            0%   { color: rgba(255,255,255,0.833); }
+            25%  { color: rgba(255,255,255,0.833); text-shadow: 0 0 10px rgb(183,48,255); }
+            50%  { color: rgba(204,35,255,0.833);  text-shadow: 0 0 5px rgb(255,255,255); }
+            75%  { color: rgba(255,255,255,0.833); text-shadow: 0 0 10px rgb(179,48,255); }
+            100% { color: rgba(255,255,255,0.833); }
+        }
+
+        .name:hover { text-shadow: 0 0 10px rgb(255,48,48); }
+
+        .hier {
+            position: relative;
+            top: 50px;
+            margin: 0 0 80px 0;
+            padding: 10px 50px;
+            font-size: clamp(16px, 1.3vw, 25px);
+            background-color: rgb(157, 0, 255);
+            color: white;
+            font-weight: 800;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: poppins;
+        }
+        .hier:hover { box-shadow: 0px 0px 100px rgb(128,0,255); }
+
+        /* ---- PAGE 2 (About + Skills) ---- */
+        .page2 {
+            width: 100%;
+            min-height: 100vh;
+            background-image: url(page3.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            padding-bottom: 60px;
+        }
+
+        .About, .About1 {
+            position: relative;
+            top: 100px;
+            color: #000000;
+            text-align: center;
+            font-size: clamp(22px, 1.8vw, 35px);
+            font-weight: 900;
+            animation: fade linear;
+            animation-timeline: view();
+            width: 100%;
+        }
+
+        .About2 {
+            position: relative;
+            top: 100px;
+            color: #ffffff;
+            text-align: center;
+            font-size: clamp(22px, 1.8vw, 35px);
+            font-weight: 900;
+            animation: fade linear;
+            animation-timeline: view();
+            width: 100%;
+        }
+
+        .me, .me3 {
+            position: relative;
+            top: 100px;
+            text-align: center;
+            font-size: clamp(14px, 1vw, 20px);
+            font-weight: 800;
+            animation: fade linear;
+            animation-timeline: view();
+            width: 100%;
+        }
+
+        .me2 { color: blueviolet; }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgba(123, 0, 255, 0.184);
+            border-radius: 40px;
+            position: relative;
+            top: 130px;
+            min-height: 300px;
+            width: min(1250px, 90%);
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 40px 30px;
+            animation: fade linear;
+            animation-timeline: view();
+        }
+
+        @keyframes fade {
+            from { opacity: 0; }
+            0%   { opacity: 0; }
+            25%  { opacity: 1; }
+            75%  { opacity: 1; }
+            to   { opacity: 1; }
+        }
+
+        .selfie {
+            border-radius: 50px;
+            width: clamp(180px, 25vw, 450px);
+            height: auto;
+            object-fit: cover;
+        }
+
+        .write {
+            font-size: clamp(14px, 1.15vw, 22px);
+            flex: 1;
+            min-width: 240px;
+            max-width: 500px;
+        }
+
+        .Designer {
+            color: darkmagenta;
+            text-shadow: 0 0 5px rgb(166,0,255);
+            animation: designer 8s 10;
+        }
+
+        @keyframes designer {
+            0%   { color: rgb(0,0,0);       text-shadow: 0 0 5px rgb(166,0,255); }
+            20%  { color: rgb(166,0,255);   }
+            50%  { color: rgb(0,0,0);       text-shadow: 0 0 5px rgb(166,0,255); }
+            70%  { color: rgb(166,0,255);   text-shadow: 0 0 5px rgb(0,0,0); }
+            100% { color: rgba(0,0,0,0.833); text-shadow: 0 0 5px rgb(166,0,255); }
+        }
+
+        .info {
+            margin-top: 20px;
+            text-align: left;
+            width: 100%;
+            max-width: 500px;
+            font-size: clamp(12px, 1vw, 16px);
+        }
+
+        /* CV buttons wrapper — centered */
+        .cv-btn-wrap {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            position: relative;
+            top: 160px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .view, .download {
+            font-size: clamp(13px, 1vw, 20px);
+            border-radius: 10px;
+            padding: 5px 18px;
+            cursor: pointer;
+            font-family: poppins;
+        }
+
+        /* Skills section headings reuse .About1 / .me3 */
+        .About1 { top: 200px; }
+        .me3    { top: 200px; }
+
+        /* ---- PAGE 3 (skills cards) ---- */
+        .page3 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            padding: 280px 5% 60px;
+        }
+
+        .skill, .code {
+            flex: 1 1 320px;
+            max-width: 750px;
+            min-height: 400px;
+            border-radius: 50px;
+            background-color: rgba(123, 0, 255, 0.184);
+            padding: 60px 40px 40px;
+        }
+
+        .skill { animation: slide 2s linear; animation-timeline: view(); }
+        .code  { animation: slides 2s linear; animation-timeline: view(); }
+
+        @keyframes slide {
+            0%  { opacity:0; transform:translateX(-60px); }
+            47% { opacity:1; transform:translateX(0); }
+            100%{ opacity:0; }
+        }
+        @keyframes slides {
+            0%  { opacity:0; transform:translateX(60px); }
+            47% { opacity:1; transform:translateX(0); }
+            100%{ opacity:0; }
+        }
+
+        .soft, .coding {
+            font-size: clamp(18px, 1.6vw, 30px);
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .ul {
+            width: 100%;
+            max-width: 600px;
+            font-size: clamp(13px, 1.15vw, 22px);
+            font-weight: 500;
+            padding-left: 20px;
+        }
+
+        .c {
+            font-size: clamp(13px, 1vw, 20px);
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 18px;
+        }
+
+        .p1 {
+            width: 100%;
+            max-width: 600px;
+            height: 20px;
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* ---- PAGE 4 (Tools) ---- */
+        .page4 {
+            background-image: url(page4.jpg);
+            background-attachment: fixed;
+            background-size: cover;
+            width: 100%;
+            padding-bottom: 80px;
+        }
+
+        .me1 {
+            width: 100%;
+            position: relative;
+            top: 100px;
+            text-align: center;
+            color: white;
+            font-size: clamp(14px, 1vw, 20px);
+            font-weight: 800;
+            animation: fade linear;
+            animation-timeline: view();
+        }
+
+        .icons {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 200px 5% 60px;
+            gap: 40px;
+            animation: fade linear;
+            animation-timeline: view();
+        }
+
+        .icon {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            color: aliceblue;
+            font-weight: 900;
+            font-size: clamp(13px, 1vw, 16px);
+        }
+
+        .icon img {
+            width: clamp(60px, 7.8vw, 150px);
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 8px;
+        }
+
+        /* ---- PAGE 5 (Blog) ---- */
+        .page5 {
+            width: 100%;
+            background-image: url(ppage5.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+            padding-top: 120px;
+            padding-bottom: 280px; /* compensates for .blogs top:200px so cards are never clipped */
+        }
+
+        .blogs {
+            width: 100%;
+            position: relative;
+            top: 200px;
+            border-radius: 50px;
+            padding: 0 4%;
+        }
+
+        .bbox, .bbox1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .bbox1 { margin-top: 30px; }
+
+        .box1,.box2,.box3,.box4 {
+            flex: 1 1 280px;
+            max-width: 600px;
+            border-radius: 50px;
+            padding: 70px 30px 30px;
+            position: relative;
+        }
+
+        .box1,.box2 { background-color: rgba(0,128,0,0.347); }
+        .box3,.box4 { background-color: rgba(2,91,2,0.347); margin-top: 0; }
+
+        .box1 { animation: slide1 10s linear; animation-timeline: view(); }
+        .box2 { animation: slide2 10s linear; animation-timeline: view(); }
+        .box3 { animation: slide3 10s linear; animation-timeline: view(); }
+        .box4 { animation: slide4 10s linear; animation-timeline: view(); }
+
+        @keyframes slide1 {
+            0%  { opacity:0; } 40% { opacity:1; } 90% { opacity:0; } 100%{ opacity:0; }
+        }
+        @keyframes slide2 {
+            0%  { opacity:0; } 40% { opacity:1; } 90% { opacity:0; } 100%{ opacity:0; }
+        }
+        @keyframes slide3 {
+            0%  { opacity:0; } 50% { opacity:1; } 77% { opacity:0; } 100%{ opacity:0; }
+        }
+        @keyframes slide4 {
+            0%  { opacity:0; } 50% { opacity:1; } 77% { opacity:0; } 100%{ opacity:0; }
+        }
+
+        .heading1,.heading2,.heading3,.heading4 {
+            font-size: clamp(24px, 2.3vw, 45px);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .pgraph1,.pgraph2,.pgraph3,.pgraph4 {
+            font-size: clamp(13px, 1.15vw, 22px);
+            max-height: 315px;
+            overflow-y: scroll;
+            line-height: 1.6;
+        }
+
+        ::-webkit-scrollbar { display: none; }
+
+        /* ---- PAGE 6 (Contact) ---- */
+        .page6 {
+            background-color: rgb(0,0,0);
+            background-image: url(page6.jpg);
+            background-position: center bottom;
+            background-size: 20%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            min-height: 500px;
+            width: 100%;
+            padding: 60px clamp(16px,5vw,80px) 80px;
+            align-items: flex-start;
+            justify-content: space-around;
+        }
+
+        .contact {
+            flex: 1 1 220px;
+            max-width: 400px;
+        }
+
+        .touch {
+            font-weight: 900;
+            font-size: clamp(18px, 1.45vw, 28px);
+            color: white;
+            margin-bottom: 30px;
+            animation: fade linear;
+            animation-timeline: view();
+        }
+
+        .ip {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            font-size: clamp(12px, 0.78vw, 15px);
+        }
+
+        i {
+            font-size: clamp(18px, 1.3vw, 25px);
+            color: white;
+            animation: fade linear;
+            animation-timeline: view();
+        }
+
+        .xy {
+            position: relative;
+            left: 20px;
+            color: white;
+            font-size: clamp(12px, 0.8vw, 15px);
+            word-break: break-all;
+        }
+
+        /* Message form */
+        .form-side {
+            flex: 1 1 280px;
+            max-width: 600px;
+        }
+
+        h2 {
+            font-size: clamp(18px, 1.45vw, 28px);
+            color: white;
+            margin-bottom: 20px;
+            animation: fade linear;
+            animation-timeline: view();
+        }
+
+        .mail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            list-style: none;
+            animation: fade linear;
+            animation-timeline: view();
+        }
+
+        .mail td { display: contents; }
+
+        .name1, .gmail1 {
+            border-radius: 20px;
+            padding: 10px 20px;
+            outline: none;
+            border: 2px gray solid;
+            background-color: rgba(240,248,255,0);
+            color: white;
+            font-family: poppins;
+            width: 100%;
+        }
+        .name1:focus, .gmail1:focus {
+            background-color: rgb(255,255,255);
+            border-color: black;
+            color: black;
+        }
+
+        .subject1 {
+            grid-column: 1 / span 2;
+            border-radius: 20px;
+            padding: 10px 20px;
+            outline: none;
+            border: 2px gray solid;
+            background-color: rgba(240,248,255,0);
+            color: white;
+            font-family: poppins;
+            width: 100%;
+        }
+        .subject1:focus { background-color: rgb(255,255,255); border-color: black; color: black; }
+
+        .message1 {
+            grid-column: 1 / span 2;
+            border-radius: 20px;
+            padding: 10px 20px;
+            border: 2px gray solid;
+            outline: none;
+            background-color: rgba(240,248,255,0);
+            color: white;
+            font-family: poppins;
+            width: 100%;
+            min-height: 100px;
+        }
+        .message1:focus { background-color: rgb(255,255,255); border-color: black; color: black; }
+
+        .submit {
+            grid-column: 1 / span 2;
+            border: 2px white solid;
+            border-radius: 20px;
+            outline: none;
+            padding: 8px 24px;
+            cursor: pointer;
+            font-family: poppins;
+            background: transparent;
+            color: white;
+        }
+        .submit:hover { color: rgb(255,255,255); background-color: black; }
+
+        /* Footer */
+        .creator {
+            background-color: whitesmoke;
+            text-align: center;
+            font-weight: 500;
+            font-size: clamp(13px, 0.83vw, 16px);
+            height: 45px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .adi {
+            color: red;
+            font-weight: 600;
+            font-family: "prime";
+            font-size: clamp(20px, 1.56vw, 30px);
+            position: relative;
+            left: 10px;
+            animation: adi 3s alternate 1s infinite;
+        }
+
+        @keyframes adi {
+            0%   { color: rgb(0,0,0);   text-shadow: 0 0 5px purple; }
+            60%  { color: rgb(0,0,0);   text-shadow: 0 0 10px rgb(255,255,255); }
+            100% { color: black;        text-shadow: 0 0 10px purple; }
+        }
+
+        /* ============================================================
+           RESPONSIVE BREAKPOINTS — layout only, no colour/animation changes
+           ============================================================ */
+
+        /* Tablet (≤1024px) */
+        @media (max-width: 1024px) {
+            .hero { background-size: 100%; background-attachment: scroll; }
+            .page2, .page4 { background-attachment: scroll; }
+            .page6 { background-attachment: scroll; }
+
+            .cv-btn-wrap {
+                margin-left: 0;
+                left: 0;
+            }
+        }
+
+        /* Mobile (≤768px) */
+        @media (max-width: 768px) {
+
+            .hero { background-size: cover; background-position: center; }
+
+            .input {
+                top: clamp(100px, 20vh, 180px);
+                left: clamp(16px, 5vw, 40px);
+                width: 90%;
+            }
+
+            .box {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                top: 150px;
+            }
+
+            .write { text-align: center; }
+            .info  { text-align: left; margin: 20px auto 0; }
+
+            .cv-btn-wrap {
+                top: 180px;
+            }
+
+            .page3 { padding-top: 220px; }
+
+            .skill, .code { min-height: auto; }
+
+            .bbox, .bbox1 { flex-direction: column; align-items: center; }
+
+            .box1,.box2,.box3,.box4 { max-width: 95%; }
+
+            .page6 {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact, .form-side { max-width: 100%; }
+
+            .mail {
+                grid-template-columns: 1fr;
+            }
+
+            .name1, .gmail1, .subject1, .message1, .submit {
+                grid-column: 1;
+            }
+        }
+
+        /* Small phone (≤480px) */
+        @media (max-width: 480px) {
+            .a { font-size: 22px; top: 20px; }
+
+            .intro { font-size: 18px; }
+
+            .name { font-size: 52px; }
+
+            .hier { padding: 8px 30px; font-size: 15px; }
+
+            .About, .About1, .About2 { font-size: 20px; }
+
+            .soft, .coding { font-size: 18px; }
+
+            .ul { font-size: 13px; }
+
+            .heading1,.heading2,.heading3,.heading4 { font-size: 22px; }
+
+            .pgraph1,.pgraph2,.pgraph3,.pgraph4 { font-size: 13px; }
+
+            .touch { font-size: 18px; }
+        }
+
+        /* 4K (≥2560px) */
+        @media (min-width: 2560px) {
+            html { font-size: 20px; }
+            .a   { font-size: 52px; }
+            .name{ font-size: 180px; }
+            .option1,.option2,.option3,.option4,.option5,.option6 { font-size: 20px; padding: 40px 20px 24px; }
+        }
+
+        @media (min-width: 3840px) {
+            html { font-size: 28px; }
+            .name{ font-size: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="black">
+            <a name="page1" id="page1"></a>
+            <div class="hero">
+                <!-- Top Navigation Header: Brand on left, Pill Navbar on right -->
+                <div class="Main on-dark-screen">
+                    <div class="a">Portfo<span class="lio">lio</span></div>
+
+                    <nav class="pill-navbar nav-on-dark" id="pillNavbar">
+                        <div class="pill-nav-inner">
+                            <!-- Desktop Links in DOM section order -->
+                            <ul class="pill-links" id="pillNavLinks">
+                                <li><a href="#page1" class="pill-link active">Home</a></li>
+                                <li><a href="#page2" class="pill-link">About Me</a></li>
+                                <li><a href="#page3" class="pill-link">Services</a></li>
+                                <li><a href="#page4" class="pill-link">Projects</a></li>
+                                <li><a href="#page5" class="pill-link">Blogs</a></li>
+                                <li><a href="#page6" class="pill-link">Testimonials</a></li>
+                            </ul>
+
+                            <!-- Right: Controls -->
+                            <div class="pill-actions">
+                                <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                    </svg>
+                                </button>
+                                <a href="#page6" class="talk-btn">Let's Talk</a>
+                                <!-- Mobile Menu Toggle -->
+                                <button class="pill-mob-toggle" id="pillMobToggle" aria-label="Toggle menu">
+                                    <span></span><span></span><span></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Mobile Dropdown Menu -->
+                        <div class="pill-mob-dropdown" id="pillMobDropdown">
+                            <a href="#page1" class="pill-mob-link active">Home</a>
+                            <a href="#page2" class="pill-mob-link">About Me</a>
+                            <a href="#page3" class="pill-mob-link">Services</a>
+                            <a href="#page4" class="pill-mob-link">Projects</a>
+                            <a href="#page5" class="pill-mob-link">Blogs</a>
+                            <a href="#page6" class="pill-mob-link">Testimonials</a>
+                        </div>
+                    </nav>
+                </div>
+
+                <div class="input">
+                    <div class="intro">Hi.. My name is<br><span class="name">Aditya</span> <br> & I'm a App Developer</div>
+                    <input type="button" value="Hire Me" class="hier">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="page2">
+            <a name="page2" id="page2"></a>
+            <div class="About">About me</div>
+            <div class="me">- <span class="me2"> Who i am </span> -</div>
+            <div class="box">
+                <img src="bg.jpeg" class="selfie">
+                <div class="write">
+                    <h1>I'm Aditya and I'm a <span class="Designer"><Br>App Developer</span></h1>
+                    <div class="info">
+                        Passionate Full Stack Web Developer with a specialization in MERN stack. Skilled, collaborative and attentive developer with a drive to develop the most relevant products. Always looking forward to learning something new to strengthen skills learned.
+                    </div>
+                </div>
+            </div>
+            <div class="cv-btn-wrap">
+                <input type="button" class="view" value="Perview CV">
+                <input type="button" class="download" value="Download CV">
+            </div>
+
+            <a name="page3" id="page3"></a>
+            <div class="About1">My skills</div>
+            <div class="me3">- <span class="me2"> What i have </span> -</div>
+            <div class="page3">
+                <div class="skill">
+                    <div class="soft">Soft & Creative Skills</div>
+                    <ul class="ul">
+                        <li>Energy and commitment to understand the needs and aspirations to achieve the goals.</li>
+                        <li>Ability to convey and implement thoughts, ideas and information in a transparent and meaningful manner.</li>
+                        <li>Ability to work under pressure and within timelines.</li>
+                        <li>Effective communication skills with good listening capability</li>
+                        <li>Problem Solver</li>
+                    </ul>
+                </div>
+                <div class="code">
+                    <div class="coding">Coding Skills</div>
+                    <div class="c"><div>React native</div><div>90%</div></div>
+                    <progress value="90" max="100" class="p1"></progress>
+                    <div class="c"><div>Flutter</div><div>70%</div></div>
+                    <progress value="70" max="100" class="p1"></progress>
+                    <div class="c"><div>Java</div><div>75%</div></div>
+                    <progress value="75" max="100" class="p1"></progress>
+                    <div class="c"><div>React</div><div>50%</div></div>
+                    <progress value="50" max="100" class="p1"></progress>
+                    <div class="c"><div>ReactJs && TypeScript</div><div>95%</div></div>
+                    <progress value="95" max="100" class="p1"></progress>
+                    <!-- <div class="c"><div></div><div>75%</div></div>
+                    <progress value="75" max="100" class="p1"></progress> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="page4">
+            <a name="page4" id="page4"></a>
+            <div class="About2">Tools i use</div>
+            <div class="me1">- <span class="me2"> What i use </span> -</div>
+            <div class="icons">
+                <!-- <div class="icon"><img src="html.png">HTML</div> -->
+                <!-- <div class="icon"><img src="css.png">CSS</div> -->
+                <div class="icon"><img src="js.png">Js</div>
+                <div class="icon"><img src="java.png">JAVA</div>
+                <div class="icon"><img src="TypeScript.png">Ts</div>
+                <div class="icon"><img src="React.png">React Native</div>
+                <div class="icon"><img src="Xcode.png">Xcode</div>
+                <div class="icon"><img src="Android Studio.png">Android Studio</div>
+                <div class="icon"><img src="Antigravity.png">AntiGravity</div>
+                <div class="icon"><img src="Firebase.png">Firebase</div>
+                <div class="icon"><img src="Git.png">Git</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="page5">
+            <a name="page5" id="page5"></a>
+            <div class="About"> My blogs</div>
+            <div class="me">- <span class="me2"> What i write </span> -</div>
+            <div class="blogs">
+                <div class="bbox">
+                    <div class="box1">
+                        <div class="heading1">Linux</div>
+                        <div class="pgraph1">Linux is an open-source operating system that is based on the Unix kernel. It was created by a Finnish student named Linus Torvalds in 1991, who wanted to make a free and better version of Unix for his personal computer. He released the source code of Linux on the internet and invited other programmers to join him in developing and improving it. Since then, Linux has grown into a huge and diverse community of developers and users, who contribute to various versions or distributions of Linux, such as Ubuntu, Fedora, Mint, Debian, and many more. Linux is popular among tech enthusiasts, programmers, hackers, and anyone who loves freedom and customization. Linux is also widely used in servers, supercomputers, embedded devices, and smartphones. You can run Linux on almost any hardware, from a Raspberry Pi to a NASA rover. Linux is also known for its stability, security, and performance. It rarely crashes, gets infected by viruses, or slows down over time.</div>
+                    </div>
+                    <div class="box2">
+                        <div class="heading2">Unix</div>
+                        <div class="pgraph2">Unix is an older operating system that was developed by AT&T Bell Labs in the 1970s. It was designed to be a portable, multi-user, and multi-tasking system that could run on different types of machines. Unix was also the first operating system to use a graphical user interface (GUI), which made it easier to interact with the computer using a mouse and windows. Unix was revolutionary for its time, and influenced many other operating systems, including Linux, MacOS, and Windows. Unix is still used today, mainly in academic, scientific, and industrial settings. Some of the most common variants of Unix are BSD, Solaris, AIX, and HP-UX. Unix is also the basis of iOS and Android, the operating systems that power most of the smartphones in the world.</div>
+                    </div>
+                </div>
+                <div class="bbox1">
+                    <div class="box3">
+                        <div class="heading3">Django 5.0</div>
+                        <div class="pgraph3">Django 5.0, the latest version of the popular web framework, was officially released on December 4, 2023. This significant update brings a host of new features, improvements, and optimizations, making it a substantial leap forward from its predecessor, Django 4.2. The release is tailored to enhance the efficiency and capability of web development, offering developers more tools and functionalities to build robust web applications.</div>
+                    </div>
+                    <div class="box4">
+                        <div class="heading4">Programming</div>
+                        <div class="pgraph4">I believe that the conventional idea of "writing a program" is headed for extinction, and indeed, for all but very specialized applications, most software, as we know it, will be replaced by AI systems that are trained rather than programmed. In situations where one needs a "simple" program (after all, not everything should require a model of hundreds of billions of parameters running on a cluster of GPUs), those programs will, themselves, be generated by an AI rather than coded by hand. I don't think this idea is crazy. No doubt the earliest pioneers of Computer Science, emerging from the (relatively) primitive cave of Electrical Engineering, stridently believed that all future Computer Scientists would need to command a deep understanding of semiconductors, binary arithmetic, and microprocessor design to understand software.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="page6">
+            <a name="page6" id="page6"></a>
+            <div class="contact">
+                <div class="touch">Get in touch</div>
+                <div class="ip"><i class="fa-brands fa-github"></i><div class="xy">cheeku99918</div></div>
+                <div class="ip"><i class="fa-brands fa-linkedin"></i><div class="xy">Aditya Mahiwal</div></div>
+                <div class="ip"><i class="fa-solid fa-at"></i><div class="xy"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6b7b2bfb7b2bfa2afb7e7e2e296b1bbb7bfbaf8b5b9bb">[email&#160;protected]</a></div></div>
+                <div class="ip"><i class="fa-solid fa-phone"></i><div class="xy">+9198125-31441</div></div>
+            </div>
+            <div class="form-side">
+                <h2>Message me</h2>
+                <ul class="mail">
+                    <td><input type="text" placeholder="Name" class="name1"></td>
+                    <td><input type="text" placeholder="Email" class="gmail1"></td>
+                    <td><input type="text" placeholder="Subject" class="subject1"></td>
+                    <td><textarea placeholder="Message" class="message1"></textarea></td>
+                    <td><input type="button" value="Send message" class="submit"></td>
+                </ul>
+            </div>
+        </div>
+        <div class="creator"> Created by <span class="adi">Aditya</span></div>
+    </section>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile Navigation Toggle
+        const pillMobToggle = document.getElementById('pillMobToggle');
+        const pillMobDropdown = document.getElementById('pillMobDropdown');
+        
+        if (pillMobToggle && pillMobDropdown) {
+            pillMobToggle.addEventListener('click', () => {
+                pillMobToggle.classList.toggle('open');
+                pillMobDropdown.classList.toggle('open');
+            });
+
+            // Close dropdown when any link is clicked & immediately apply theme
+            document.querySelectorAll('.pill-mob-link, .pill-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    pillMobToggle.classList.remove('open');
+                    pillMobDropdown.classList.remove('open');
+                    const targetId = (link.getAttribute('href') || '').replace('#', '');
+                    if (targetId) {
+                        updateNavbarTheme(targetId);
+                    }
+                });
+            });
+        }
+
+        // Dynamic Navbar Theme Mapping (screen background -> navbar color)
+        // Black/Dark Screen  -> Navbar background is WHITE, text is BLACK
+        // White/Other Screen -> Navbar background is BLACK, text is WHITE
+        const sectionScreenTheme = {
+            'page1': 'dark',   // Hero / Black screen -> White navbar, black text
+            'page2': 'light',  // About me / White/Light screen -> Black navbar, white text
+            'page3': 'light',  // Skills / White/Light screen -> Black navbar, white text
+            'page4': 'dark',   // Tools / Dark screen -> White navbar, black text
+            'page5': 'light',  // Blogs / White/Light screen -> Black navbar, white text
+            'page6': 'dark'    // Contact / Black screen -> White navbar, black text
+        };
+
+        const pillNavbar = document.getElementById('pillNavbar');
+        const mainHeader = document.querySelector('.Main');
+
+        function updateNavbarTheme(currentId) {
+            const screenType = sectionScreenTheme[currentId] || 'dark';
+            if (screenType === 'dark') {
+                if (pillNavbar) {
+                    pillNavbar.classList.add('nav-on-dark');
+                    pillNavbar.classList.remove('nav-on-light');
+                }
+                if (mainHeader) {
+                    mainHeader.classList.add('on-dark-screen');
+                    mainHeader.classList.remove('on-light-screen');
+                }
+            } else {
+                if (pillNavbar) {
+                    pillNavbar.classList.add('nav-on-light');
+                    pillNavbar.classList.remove('nav-on-dark');
+                }
+                if (mainHeader) {
+                    mainHeader.classList.add('on-light-screen');
+                    mainHeader.classList.remove('on-dark-screen');
+                }
+            }
+        }
+
+        // Active Link Highlight on Scroll and Click
+        const sectionIds = ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'];
+
+        function getActiveSection() {
+            const scrollPos = window.scrollY + 220;
+            let current = sectionIds[0];
+
+            for (let i = 0; i < sectionIds.length; i++) {
+                const id = sectionIds[i];
+                const el = document.getElementById(id) || document.querySelector(`a[name="${id}"]`);
+                if (el) {
+                    const top = el.getBoundingClientRect().top + window.scrollY;
+                    if (scrollPos >= top) {
+                        current = id;
+                    }
+                }
+            }
+
+            // If scrolled near bottom of page, activate the last section
+            if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 60)) {
+                current = sectionIds[sectionIds.length - 1];
+            }
+
+            return current;
+        }
+
+        function updateNavHighlight() {
+            const current = getActiveSection();
+            document.querySelectorAll('.pill-link, .pill-mob-link').forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === `#${current}`) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+            updateNavbarTheme(current);
+        }
+
+        window.addEventListener('scroll', updateNavHighlight, { passive: true });
+        window.addEventListener('load', updateNavHighlight);
+        document.addEventListener('DOMContentLoaded', updateNavHighlight);
+
+        // Theme Toggle (Moon / Sun interaction)
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-theme');
+                const isLight = document.body.classList.contains('light-theme');
+                themeToggle.innerHTML = isLight 
+                    ? `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`
+                    : `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+            });
+        }
+    </script>
+</body>
+</html>
